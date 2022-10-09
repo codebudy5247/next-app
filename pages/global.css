@@ -9,5 +9,4 @@ body {
 }
 .absolute :hover{
   cursor:pointer;
-  /* border: 1px solid #439fd9; */
 }

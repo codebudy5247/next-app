@@ -2,24 +2,31 @@ import type { NextPage } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
+import useWindowResize from "../hooks/useWindowResize";
 const HomePage: NextPage = () => {
+  const windowSize = useWindowResize();
+  console.log(windowSize?.width);
+
+  const handleClickTrack = () => {};
+  const handleClickLetsTalk = () => {};
+
   return (
-    <div className="relative bg-white w-full h-[10510px] overflow-hidden text-left text-5xl text-gray-1700 font-fedra-sans-std">
+    <div className="relative bg-white w-full desktop:w-[min-w-fit] h-[10510px] overflow-hidden  text-left text-5xl text-gray-1700 font-fedra-sans-std">
       <div className="absolute top-[0px] left-[0px] bg-gray-100 w-[1920px] h-[637px]" />
       <img
-        className="absolute top-[185px] left-[1545px] w-[112px] h-[118px] overflow-hidden"
+        className="absolute top-[185px] left-[1545px] desktop:top-[145px] desktop:left-[1100px]  w-[112px] h-[118px] overflow-hidden"
         alt=""
         src="../frame16.svg"
       />
       <img
-        className="absolute top-[223.5px] left-[0px] w-[1918.5px] h-[414px]"
+        className="absolute top-[223.5px] left-[0px] desktop:w-[1400pxs] w-[1918.5px] h-[414px]"
         alt=""
         src="../vector2.svg"
       />
-        {/* ========================================HEADER===================================== */}
-      <Header />
+      {/* ========================================HEADER===================================== */}
+      {/* <Header /> */}
 
-      <div className="absolute top-[212px] left-[1254px] rounded-[20px] bg-white shadow-[29px_37px_50px_rgba(67,_159,_217,_0.08)] flex flex-col p-[50px] box-border items-start justify-start gap-[20px] text-2xl">
+      <div className="absolute top-[212px] left-[1254px] desktop:left-[900px] desktop:top-[180px] rounded-[20px] bg-white shadow-[29px_37px_50px_rgba(67,_159,_217,_0.08)] flex flex-col p-[50px] desktop:p-[30px] box-border items-start justify-start gap-[20px] text-2xl">
         <div className="relative text-teal-100 inline-block">
           Shifting Happiness
         </div>
@@ -38,9 +45,9 @@ const HomePage: NextPage = () => {
           />
         </div>
       </div>
-      <div className="absolute top-[1894px] left-[0px] w-[1920px] h-[903px] text-base">
-        <div className="absolute top-[0px] left-[0px] bg-gray-200 w-[1920px] h-[903px]" />
-        <div className="absolute top-[200px] left-[481px] flex flex-col items-center justify-start gap-[120px]">
+      <div className="absolute top-[1894px] desktop:top-[1794px] left-[0px] w-[1920px] desktop:w-[1366px] h-[903px] desktop:h-[740px] text-base">
+        <div className="absolute top-[0px] left-[0px] bg-gray-200 w-[1920px] desktop:w-[1366px] h-[903px] desktop:h-[740px]" />
+        <div className="absolute top-[200px] desktop:top-[150px] left-[481px] desktop:left-[181px] flex flex-col items-center justify-start gap-[120px] desktop:gap-[60px] ">
           <div className="relative w-[919px] h-[263px] shrink-0">
             <div className="absolute top-[0px] left-[544px] flex flex-col items-start justify-start gap-[30px]">
               <b className="relative text-3xl leading-[130%] inline-block w-[375px]">{`Great & Affordable Shifting Services`}</b>
@@ -107,16 +114,16 @@ const HomePage: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-[6419px] left-[0px] w-[1920px] h-[853px] text-center text-white">
+      <div className="absolute top-[6419px] desktop:top-[5900px] left-[0px] w-[1920px] h-[853px] text-center text-white">
         <div className="absolute top-[0px] left-[0px] bg-teal-100 w-[1920px] h-[853px]" />
-        <div className="absolute top-[100px] left-[300px] w-[1320px] h-[639px]">
-          <b className="absolute top-[0px] left-[262px] leading-[130%] inline-block w-[796px]">
+        <div className="absolute top-[100px] left-[300px] desktop:left-[100px] w-[1320px] h-[639px]">
+          <b className="absolute top-[0px] left-[262px] desktop:left-[162px] leading-[130%] inline-block w-[796px]">
             <span>{`Our `}</span>
             <span className="text-gold">Best Experience</span>
             <span> in Excellent Logistics Fulfillment</span>
           </b>
-          <div className="absolute top-[204px] left-[0px] w-[1320px] h-[435px] text-left text-7xl text-teal-200 font-open-sans">
-            <div className="absolute top-[0px] left-[0px] rounded-[20px] bg-white flex flex-col p-[30px] box-border items-start justify-center gap-[40px]">
+          <div className="absolute top-[204px] desktop:top-[154px] left-[0px] w-[1320px] h-[min-h-fit] text-left text-7xl text-teal-200 font-open-sans">
+            <div className="absolute top-[0px] left-[0px] rounded-[20px] bg-white flex flex-col p-[30px] desktop:p-[20px] box-border items-start justify-center gap-[40px] desktop:gap-[20px]">
               <div className="relative font-extrabold inline-block">01</div>
               <img
                 className="relative w-[58.67px] h-[48px] shrink-0"
@@ -129,11 +136,11 @@ const HomePage: NextPage = () => {
                 </div>
                 <div className="relative text-base text-gray-1100 inline-block w-[243px]">
                   Book on your schedule and get estimates instantly with the
-                  help of our dedicated customer service agents.
+                  help of our dedicated customer service.
                 </div>
               </div>
             </div>
-            <div className="absolute top-[0px] left-[339px] rounded-[20px] bg-white flex flex-col p-[30px] box-border items-start justify-center gap-[40px]">
+            <div className="absolute top-[0px] left-[339px] desktop:left-[300px] rounded-[20px] bg-white flex flex-col p-[30px] desktop:p-[20px] box-border items-start justify-center gap-[40px] desktop:gap-[20px] ">
               <div className="relative font-extrabold inline-block">02</div>
               <img
                 className="relative w-[58.67px] h-[48px] shrink-0"
@@ -150,7 +157,7 @@ const HomePage: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="absolute top-[0px] left-[678px] rounded-[20px] bg-white flex flex-col p-[30px] box-border items-start justify-center gap-[40px]">
+            <div className="absolute top-[0px] left-[678px] desktop:left-[600px] rounded-[20px] bg-white flex flex-col p-[30px] desktop:p-[20px] box-border items-start justify-center gap-[40px] desktop:gap-[20px]">
               <div className="relative font-extrabold inline-block">03</div>
               <img
                 className="relative w-[58.67px] h-[48px] shrink-0"
@@ -165,7 +172,7 @@ const HomePage: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="absolute top-[0px] left-[1017px] rounded-[20px] bg-white flex flex-col p-[30px] box-border items-start justify-center gap-[40px]">
+            <div className="absolute top-[0px] left-[1017px] desktop:left-[900px] rounded-[20px] bg-white flex flex-col p-[30px] desktop:p-[20px] box-border items-start justify-center gap-[40px] desktop:gap-[20px]">
               <div className="relative font-extrabold inline-block">04</div>
               <img
                 className="relative w-[58.67px] h-[48px] shrink-0"
@@ -179,7 +186,7 @@ const HomePage: NextPage = () => {
                 <div className="relative text-base text-gray-1100 inline-block w-[243px]">
                   <p className="[margin-block-start:0] [margin-block-end:0px]">
                     Don't worry about sharing your truck space or move-day with
-                    anyone else.
+                    anyone else help of our dedicated customer.
                   </p>
                 </div>
               </div>
@@ -187,14 +194,14 @@ const HomePage: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-[549px] left-[44px] w-[1081px] h-[205px]">
+      <div className="absolute top-[549px] left-[44px] w-[1081px] desktop:w-[900px] h-[205px]">
         <img
-          className="absolute top-[34px] left-[528px] w-[553px] h-[88px] object-cover"
+          className="absolute top-[34px] left-[528px] w-[553px] desktop:w-[353px] h-[88px] object-cover"
           alt=""
           src="../moversburnabysignaturemovingscaledremovebg-1@2x.png"
         />
         <img
-          className="absolute top-[0px] left-[0px] w-[590px] h-[205px] object-cover"
+          className="absolute top-[0px] left-[0px] w-[590px] desktop:w-[490px] h-[205px] object-cover"
           alt=""
           src="../truck-mockup-1@2x.png"
         />
@@ -292,17 +299,17 @@ const HomePage: NextPage = () => {
 
       {/* ========================================FAQ===================================== */}
       <FAQ />
-      <div className="absolute top-[1094px] left-[-167px] w-[2087px] h-[800px] text-white">
+      <div className="absolute top-[1094px] desktop:top-[1000px] left-[-167px] desktop:left-[-667px] w-[2087px] desktop:w-[2500px] h-[800px] text-white">
         <img
-          className="absolute top-[0px] left-[167px] w-[1920px] h-[800px] object-cover"
+          className="absolute top-[0px] left-[167px] desktop:left-[550px]  w-[1920px] desktop:w-[1566px]  h-[800px] object-cover"
           alt=""
           src="../rectangle-14@2x.png"
         />
-        <div className="absolute top-[267px] left-[467px] flex flex-col items-start justify-center gap-[30px]">
-          <b className="relative leading-[130%] inline-block w-[287px]">
+        <div className="absolute top-[267px] desktop:top-[270px] left-[5467px] desktop:left-[790px] flex flex-col items-start justify-center gap-[30px]">
+          <b className="relative leading-[130%] inline-block w-[287px] ">
             Moving Made Modern
           </b>
-          <div className="relative text-base inline-block w-[361px]">
+          <div className="relative text-base inline-block w-[361px] ">
             By choosing White Glove Packers and Movers, you’re guaranteeing a
             great moving day. All customers receive transparent pricing,
             flexible service and payment options, Quality Packaging Material,
@@ -311,20 +318,20 @@ const HomePage: NextPage = () => {
           </div>
         </div>
         <img
-          className="absolute top-[576px] left-[167px] w-[467.5px] h-[174px]"
+          className="absolute top-[576px] left-[167px] desktop:left-[490px] w-[467.5px] h-[174px]"
           alt=""
           src="../vector3.svg"
         />
         <img
-          className="absolute top-[50px] left-[309px] w-[158px] h-[150px] overflow-hidden"
+          className="absolute top-[50px] left-[309px] desktop:left-[730px] w-[158px] h-[150px] overflow-hidden"
           alt=""
           src="../frame18.svg"
         />
       </div>
-      <div className="absolute top-[2997px] left-[300px] flex flex-col items-center justify-start gap-[200px]">
-        <div className="relative w-[1320px] h-[606px] shrink-0">
-          <div className="absolute top-[0px] left-[0px] rounded-[20px] bg-gold w-[1320px] h-[534px]" />
-          <div className="absolute top-[102px] left-[100px] flex flex-col items-start justify-center gap-[30px]">
+      <div className="absolute top-[2997px] desktop:top-[2650px] left-[300px] desktop:left-[100px] flex flex-col items-center justify-start gap-[250px]">
+        <div className="relative w-[1320px] h-[606px] desktop:h-[500px] shrink-0">
+          <div className="absolute top-[0px] left-[0px] rounded-[20px] bg-gold w-[1320px] desktop:w-[1150px] h-[534px]" />
+          <div className="absolute top-[102px] left-[100px] desktop:left-[60px] flex flex-col items-start justify-center gap-[30px]">
             <b className="relative leading-[130%] inline-block w-[287px]">
               What do you want to ship?
             </b>
@@ -333,7 +340,10 @@ const HomePage: NextPage = () => {
               you.
             </div>
             <div className="rounded-[10px] bg-gray-1700 flex flex-row p-[20px] box-border items-center justify-start gap-[20px] text-xl text-white">
-              <div className="relative font-medium inline-block">
+              <div
+                className="relative font-medium inline-block"
+                onClick={() => handleClickLetsTalk()}
+              >
                 Let’s Talk
               </div>
               <img
@@ -344,28 +354,28 @@ const HomePage: NextPage = () => {
             </div>
           </div>
           <img
-            className="absolute top-[363px] left-[914px] w-[306px] h-[171px]"
+            className="absolute top-[363px] left-[914px] desktop:left-[780px] w-[306px] h-[171px]"
             alt=""
             src="../vector4.svg"
           />
           <img
-            className="absolute top-[0px] left-[382.14px] w-[724.89px] h-[363px]"
+            className="absolute top-[0px] left-[382.14px] desktop:left-[282px] w-[724.89px] desktop:w-[624.89px]  h-[363px] desktop:h-[263px]"
             alt=""
             src="../group-45.svg"
           />
           <img
-            className="absolute top-[205px] left-[518px] w-[408px] h-[401px] object-cover"
+            className="absolute top-[205px] left-[518px] desktop:left-[418px] w-[408px] h-[401px] object-cover"
             alt=""
             src="../ungroup-unhide-1@2x.png"
           />
           <img
-            className="absolute top-[163.57px] left-[1062.41px] w-[157.9px] h-[149.58px]"
+            className="absolute top-[163.57px] left-[1062.41px] desktop:left-[928px]  w-[157.9px] h-[149.58px]"
             alt=""
             src="../group-441.svg"
           />
         </div>
-        <div className="overflow-hidden flex flex-row items-center justify-center gap-[30px] text-xl">
-          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] box-border items-start justify-center gap-[20px]">
+        <div className="overflow-hidden flex flex-row items-center justify-center gap-[30px] desktop:gap-[20px] text-xl desktop:mr-[159px]">
+          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] desktop:p-[20px_30px] box-border items-start justify-center gap-[20px]">
             <img
               className="relative w-[48px] h-[48px] shrink-0"
               alt=""
@@ -376,7 +386,7 @@ const HomePage: NextPage = () => {
             </div>
             <b className="relative text-5xl inline-block">359</b>
           </div>
-          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] box-border items-start justify-center gap-[20px]">
+          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] desktop:p-[20px_30px] box-border items-start justify-center gap-[20px]">
             <img
               className="relative w-[48px] h-[48px] shrink-0"
               alt=""
@@ -387,7 +397,7 @@ const HomePage: NextPage = () => {
             </div>
             <b className="relative text-5xl inline-block">500+</b>
           </div>
-          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] box-border items-start justify-center gap-[20px]">
+          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] desktop:p-[20px_30px] box-border items-start justify-center gap-[20px]">
             <img
               className="relative w-[48px] h-[48px] shrink-0"
               alt=""
@@ -398,7 +408,7 @@ const HomePage: NextPage = () => {
             </div>
             <b className="relative text-5xl inline-block">25K</b>
           </div>
-          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] box-border items-start justify-center gap-[20px]">
+          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] desktop:p-[20px_30px] box-border items-start justify-center gap-[20px]">
             <img
               className="relative w-[48px] h-[48px] shrink-0"
               alt=""
@@ -407,7 +417,7 @@ const HomePage: NextPage = () => {
             <div className="relative inline-block w-[110px]">Tons Of Goods</div>
             <b className="relative text-5xl inline-block">17K</b>
           </div>
-          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] box-border items-start justify-center gap-[20px]">
+          <div className="rounded-[20px] bg-gray-200 flex flex-col p-[40px_50px] desktop:p-[20px_30px] box-border items-start justify-center gap-[20px]">
             <img
               className="relative w-[48px] h-[48px] shrink-0"
               alt=""
@@ -503,16 +513,16 @@ const HomePage: NextPage = () => {
       {/* Footer */}
       <Footer />
 
-      <div className="absolute top-[4279px] left-[0px] w-[1920px] h-[1030px] text-center text-xl text-teal-100">
-        <div className="absolute top-[0px] left-[0px] bg-gray-100 w-[1920px] h-[1030px]" />
-        <div className="absolute top-[200px] left-[305px] flex flex-col items-center justify-start gap-[100px]">
-          <div className="flex flex-col items-center justify-center gap-[20px] text-2xl">
+      <div className="absolute top-[4279px] desktop:top-[3770px] left-[0px] w-[1920px] h-[1030px] text-center text-xl text-teal-100">
+        <div className="absolute top-[0px] left-[0px] bg-gray-100 w-[1920px] h-[1030px] desktop:h-[800px]" />
+        <div className="absolute top-[200px] desktop:top-[100px]  left-[305px] desktop:left-[70px] flex flex-col items-center justify-start gap-[100px] desktop:gap-[60px]">
+          <div className="flex flex-col items-center justify-center gap-[20px] desktop:gap-[5px] text-2xl">
             <div className="relative inline-block">Our Top Cities</div>
             <b className="relative text-5xl inline-block text-gray-1700">
               Find Movers Near You
             </b>
           </div>
-          <div className="flex flex-row items-center justify-center gap-[40px] text-gray-1700">
+          <div className="flex flex-row items-center justify-center gap-[40px] desktop:gap-[15px] text-gray-1700">
             <div className="rounded-[20px] [border:2px_solid_#000c24] box-border relative w-[230px] h-[250px] shrink-0 flex flex-col p-[64px] items-center justify-center gap-[30px]">
               <img
                 className="relative w-[90.38px] h-[102px] shrink-0"
@@ -521,7 +531,7 @@ const HomePage: NextPage = () => {
               />
               <div className="relative inline-block">Delhi</div>
             </div>
-            <div className="rounded-[20px] [border:2px_solid_#439fd9] box-border relative w-[230px] h-[250px] shrink-0 flex flex-col p-[64px] items-center justify-center gap-[30px] text-teal-100">
+            <div className="rounded-[20px] [border:2px_solid_#000c24] box-border relative w-[230px] h-[250px] shrink-0 flex flex-col p-[64px] items-center justify-center gap-[30px] text-teal-100">
               <img
                 className="relative w-[90.38px] h-[102px] shrink-0"
                 alt=""
@@ -574,7 +584,7 @@ const HomePage: NextPage = () => {
         alt=""
         src="../vector5.svg"
       />
-      <div className="absolute top-[750px] left-[380px] rounded-[20px] bg-gray-1700 flex flex-row p-[40px_50px] box-border items-center justify-center gap-[50px] text-2xl text-white">
+      <div className="absolute top-[750px] desktop:top-[735px] left-[380px] desktop:left-[130px] rounded-[20px] bg-gray-1700 flex flex-row p-[40px_50px] desktop:p-[30px_40px] box-border items-center justify-center gap-[50px] desktop:gap-[40px] text-2xl text-white">
         <div className="flex flex-row items-center justify-start gap-[16px]">
           <img
             className="relative w-[64px] h-[64px] shrink-0"
@@ -598,53 +608,24 @@ const HomePage: NextPage = () => {
         </div>
         <div className="flex flex-row items-start justify-start gap-[20px] text-center text-base text-gray-800">
           <div className="rounded-[10px] bg-gray-300 w-[302px] shrink-0 flex flex-row p-[16px_20px] box-border items-start justify-start">
-            <div className="relative inline-block">LRN Number</div>
+            {/* <div className="relative inline-block"> LRN Number</div> */}
+            <input
+              type="text"
+              placeholder="LRN Number"
+              className="bg-gray-300"
+              style={{ width: "100%", height: "100%", borderStyle: "none" }}
+            />
           </div>
           <div className="rounded-[10px] bg-gold w-[175px] shrink-0 flex flex-row p-[16px_20px] box-border items-center justify-center text-gray-1700">
-            <div className="relative font-medium inline-block">Track</div>
+            <div
+              className="relative font-medium inline-block"
+              onClick={() => handleClickTrack()}
+            >
+              Track
+            </div>
           </div>
         </div>
       </div>
-      {/* <div className="absolute top-[526px] left-[696px] rounded-[10px] bg-white shadow-[0px_0px_20px_rgba(67,_159,_217,_0.08)] [border:2px_solid_#e7ecf2] box-border w-[246px] flex flex-col p-[20px_2px] items-start justify-center text-center text-sm font-open-sans">
-        <div className="w-[246px] flex flex-row p-[16px_30px] box-border items-center justify-start text-left">
-          <div className="relative font-semibold inline-block">
-            Mobile Number
-          </div>
-        </div>
-        <div className="w-[246px] flex flex-row p-[16px_30px] box-border items-center justify-start">
-          <div className="relative font-semibold inline-block">Tracking ID</div>
-        </div>
-        <div className="bg-gray-200 w-[242px] flex flex-row p-[16px_30px] box-border items-center justify-start text-teal-100">
-          <div className="relative font-semibold inline-block">
-            LTL Shipment (LRN)
-          </div>
-        </div>
-        <div className="w-[246px] flex flex-row p-[16px_30px] box-border items-center justify-start">
-          <div className="relative font-semibold inline-block">
-            Order ID/Ref ID
-          </div>
-        </div>
-      </div> */}
-      {/* <div className="absolute top-[583px] left-[1494px] rounded-[10px] bg-gray-1700 w-[263px] hidden flex-col p-[20px_0px] box-border items-start justify-center text-center text-sm text-white font-open-sans">
-        <div className="w-[263px] flex flex-row p-[16px_30px] box-border items-center justify-start text-left">
-          <div className="relative font-semibold inline-block">
-            Mobile Number
-          </div>
-        </div>
-        <div className="w-[263px] flex flex-row p-[16px_30px] box-border items-center justify-start">
-          <div className="relative font-semibold inline-block">Tracking ID</div>
-        </div>
-        <div className="bg-gray-1600 w-[263px] flex flex-row p-[16px_30px] box-border items-center justify-start text-gold">
-          <div className="relative font-semibold inline-block">
-            LTL Shipment (LRN)
-          </div>
-        </div>
-        <div className="w-[263px] flex flex-row p-[16px_30px] box-border items-center justify-start">
-          <div className="relative font-semibold inline-block">
-            Order ID/Ref ID
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

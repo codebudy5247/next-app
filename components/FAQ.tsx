@@ -34,9 +34,9 @@ export default function FAQ() {
     setOpen(open === value ? 0 : value);
   };
   return (
-    <div className="absolute top-[5309px] left-[0px] w-[1920px] h-[1110px] text-xl">
+    <div className="absolute top-[5309px] desktop:top-[4600px] left-[0px] w-[1920px] h-[1110px]  text-xl">
       <div className="absolute top-[0px] left-[0px] bg-white w-[1920px] h-[1110px]" />
-      <div className="absolute top-[100px] left-[555px] flex flex-col items-center justify-start gap-[100px]">
+      <div className="absolute top-[100px] desktop:top-[50px] left-[555px] desktop:left-[300px]  flex flex-col items-center justify-start gap-[100px] desktop:gap-[50px]">
         <b className="relative text-6xl inline-block text-center">
           FAQ about Packers and Movers
         </b>
