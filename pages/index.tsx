@@ -24,7 +24,7 @@ const HomePage: NextPage = () => {
         src="../vector2.svg"
       />
       {/* ========================================HEADER===================================== */}
-      {/* <Header /> */}
+      <Header />
 
       <div className="absolute top-[212px] left-[1254px] desktop:left-[900px] desktop:top-[180px] rounded-[20px] bg-white shadow-[29px_37px_50px_rgba(67,_159,_217,_0.08)] flex flex-col p-[50px] desktop:p-[30px] box-border items-start justify-start gap-[20px] text-2xl">
         <div className="relative text-teal-100 inline-block">
