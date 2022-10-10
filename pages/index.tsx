@@ -6,6 +6,8 @@ import useWindowResize from "../hooks/useWindowResize";
 import Slider1 from "../components/Slider/Slider";
 import Slider2 from "../components/Slider/Slider2";
 import Slider3 from "../components/Slider/Slider3";
+import Slder4 from "../components/Slider/Slder4";
+import Slider5 from "../components/Slider5";
 import { useState } from "react";
 
 
@@ -69,10 +71,10 @@ const HomePage: NextPage = () => {
       return (<Slider3 /> )
     }
     if(slide4){
-      return 
+      return (<Slder4/>)
     }
     if(slide5){
-      return 
+      return (<Slider5/>)
     }
    
   };

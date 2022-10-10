@@ -7,19 +7,19 @@ const Slider2 = () => {
        <div className="absolute top-[9px] left-[190px] w-[209px] h-[121px]">
          <div className="absolute top-[0px] left-[0px] w-[209px] h-[73px]">
            <div className="absolute top-[0px] left-[0px] font-medium inline-block">
-             Mainak Chakraborty
+            Dev Chowdhry
            </div>
            <div className="absolute top-[37px] left-[0px] text-sm inline-block w-[148px]">{`Co-founder & CEO, GPS Renewables`}</div>
          </div>
          <div className="absolute top-[85px] left-[0px] text-sm text-gray-1100 inline-block w-[173px]">
-           Relocated from Bangalore to Hyderabad
+           Relocated from Mumbai to Hyderabad
          </div>
        </div>
-       {/* <img
+       <img
          className="absolute top-[0px] left-[0px] rounded-[20px] w-[140px] h-[140px] object-cover"
          alt=""
-         src="../rectangle-11@2x.png"
-       /> */}
+         src="../profile2.png"
+       />
      </div>
      <div className="relative text-base leading-[150%] text-gray-1700 inline-block w-[537px]">
        I moved from Whitefield, Bangalore to Hyderabad with Pikkol recently. I
