@@ -10,19 +10,14 @@ import Slder4 from "../components/Slider/Slder4";
 import Slider5 from "../components/Slider5";
 import { useState } from "react";
 
-
 const HomePage: NextPage = () => {
   const windowSize = useWindowResize();
-  console.log(windowSize?.width);
-
   // slider
   const [slide1, setSlide1] = useState(true);
   const [slide2, setSlide2] = useState(false);
   const [slide3, setSlide3] = useState(false);
   const [slide4, setSlide4] = useState(false);
   const [slide5, setSlide5] = useState(false);
-
-  console.log({slide1,slide2,slide3,slide4,slide5})
 
   const onClickSlider1 = () => {
     setSlide1(true);
@@ -61,22 +56,21 @@ const HomePage: NextPage = () => {
   };
 
   const displaySlider = () => {
-    if(slide1){
-      return (<Slider1 /> )
+    if (slide1) {
+      return <Slider1 />;
     }
-    if(slide2){
-      return (<Slider2 /> )
+    if (slide2) {
+      return <Slider2 />;
     }
-    if(slide3){
-      return (<Slider3 /> )
+    if (slide3) {
+      return <Slider3 />;
     }
-    if(slide4){
-      return (<Slder4/>)
+    if (slide4) {
+      return <Slder4 />;
     }
-    if(slide5){
-      return (<Slider5/>)
+    if (slide5) {
+      return <Slider5 />;
     }
-   
   };
 
   const handleClickTrack = () => {};
@@ -520,7 +514,9 @@ const HomePage: NextPage = () => {
                 style={{
                   border: "0.5px solid gray",
                   borderRadius: "50%",
-                  padding: "4px",
+                  padding: "6px",
+                  backgroundColor:'#B9B9B9',
+                  cursor:'pointer'
                 }}
                 onClick={() => onClickSlider1()}
               ></button>
@@ -529,7 +525,9 @@ const HomePage: NextPage = () => {
                 style={{
                   border: "0.5px solid gray",
                   borderRadius: "50%",
-                  padding: "4px",
+                  padding: "6px",
+                  backgroundColor:'#B9B9B9',
+                  cursor:'pointer'
                 }}
                 onClick={() => onClickSlider2()}
               ></button>
@@ -538,7 +536,9 @@ const HomePage: NextPage = () => {
                 style={{
                   border: "0.5px solid gray",
                   borderRadius: "50%",
-                  padding: "4px",
+                  padding: "6px",
+                  backgroundColor:'#B9B9B9',
+                  cursor:'pointer'
                 }}
                 onClick={() => onClickSlider3()}
               ></button>
@@ -547,7 +547,9 @@ const HomePage: NextPage = () => {
                 style={{
                   border: "0.5px solid gray",
                   borderRadius: "50%",
-                  padding: "4px",
+                  padding: "6px",
+                  backgroundColor:'#B9B9B9',
+                  cursor:'pointer'
                 }}
                 onClick={() => onClickSlider4()}
               ></button>
@@ -556,18 +558,14 @@ const HomePage: NextPage = () => {
                 style={{
                   border: "0.5px solid gray",
                   borderRadius: "50%",
-                  padding: "4px",
+                  padding: "6px",
+                  backgroundColor:'#B9B9B9',
+                  cursor:'pointer'
                 }}
                 onClick={() => onClickSlider5()}
               ></button>
             </div>
           </div>
-
-          {/* <img
-            className="relative w-[128px] h-[12px] shrink-0"
-            alt=""
-            src="../group-15.svg"
-          /> */}
         </div>
         <b className="absolute top-[100px] left-[677px] desktop:left-[450px] text-5xl inline-block">
           What our Clients are Saying
