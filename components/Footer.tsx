@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="absolute top-[9845px] left-[0px] w-[1920px] h-[665px] text-sm text-white">
+    <div className="absolute top-[9845px] desktop:top-[9000px] left-[0px] w-[1920px] h-[665px] text-sm text-white">
       <div className="absolute top-[0px] left-[0px] bg-gray-1700 w-[1920px] h-[665px]" />
       <img
         className="absolute h-[118.65%] w-[31.36%] top-[1665.17%] right-[59.73%] bottom-[-1683.82%] left-[8.91%] max-w-full overflow-hidden max-h-full hidden"
@@ -13,7 +13,7 @@ const Footer = () => {
         alt=""
         src="../world-map-bg7.svg"
       />
-      <div className="absolute top-[544.59px] left-[300px] w-[1319px] h-[69px]">
+      <div className="absolute top-[544.59px] left-[300px] desktop:left-[10px] w-[1319px] h-[69px]">
         <div className="absolute top-[0px] left-[0px] bg-gray-1400 w-[1319px] h-[1px]" />
         <div className="absolute top-[31px] left-[0px] w-[1319px] h-[38px]">
           <div className="absolute top-[0px] left-[0px] flex flex-row items-center justify-start gap-[30px]">

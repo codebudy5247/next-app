@@ -3,15 +3,85 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 import useWindowResize from "../hooks/useWindowResize";
+import Slider1 from "../components/Slider/Slider";
+import Slider2 from "../components/Slider/Slider2";
+import Slider3 from "../components/Slider/Slider3";
+import { useState } from "react";
+
+
 const HomePage: NextPage = () => {
   const windowSize = useWindowResize();
   console.log(windowSize?.width);
+
+  // slider
+  const [slide1, setSlide1] = useState(true);
+  const [slide2, setSlide2] = useState(false);
+  const [slide3, setSlide3] = useState(false);
+  const [slide4, setSlide4] = useState(false);
+  const [slide5, setSlide5] = useState(false);
+
+  console.log({slide1,slide2,slide3,slide4,slide5})
+
+  const onClickSlider1 = () => {
+    setSlide1(true);
+    setSlide2(false);
+    setSlide3(false);
+    setSlide4(false);
+    setSlide5(false);
+  };
+  const onClickSlider2 = () => {
+    setSlide1(false);
+    setSlide2(true);
+    setSlide3(false);
+    setSlide4(false);
+    setSlide5(false);
+  };
+  const onClickSlider3 = () => {
+    setSlide1(false);
+    setSlide2(false);
+    setSlide3(true);
+    setSlide4(false);
+    setSlide5(false);
+  };
+  const onClickSlider4 = () => {
+    setSlide1(false);
+    setSlide2(false);
+    setSlide3(false);
+    setSlide4(true);
+    setSlide5(false);
+  };
+  const onClickSlider5 = () => {
+    setSlide1(false);
+    setSlide2(false);
+    setSlide3(false);
+    setSlide4(false);
+    setSlide5(true);
+  };
+
+  const displaySlider = () => {
+    if(slide1){
+      return (<Slider1 /> )
+    }
+    if(slide2){
+      return (<Slider2 /> )
+    }
+    if(slide3){
+      return (<Slider3 /> )
+    }
+    if(slide4){
+      return 
+    }
+    if(slide5){
+      return 
+    }
+   
+  };
 
   const handleClickTrack = () => {};
   const handleClickLetsTalk = () => {};
 
   return (
-    <div className="relative bg-white w-full desktop:w-[min-w-fit] h-[10510px] overflow-hidden  text-left text-5xl text-gray-1700 font-fedra-sans-std">
+    <div className="relative bg-white w-full desktop:w-[min-w-fit] h-[10510px] desktop:h-[9620px] overflow-hidden  text-left text-5xl text-gray-1700 font-fedra-sans-std">
       <div className="absolute top-[0px] left-[0px] bg-gray-100 w-[1920px] h-[637px]" />
       <img
         className="absolute top-[185px] left-[1545px] desktop:top-[145px] desktop:left-[1100px]  w-[112px] h-[118px] overflow-hidden"
@@ -206,9 +276,9 @@ const HomePage: NextPage = () => {
           src="../truck-mockup-1@2x.png"
         />
       </div>
-      <div className="absolute top-[7272px] left-[0px] w-[1920px] h-[1344px]">
+      <div className="absolute top-[7272px] desktop:top-[6700px] left-[0px] w-[1920px] h-[1344px]">
         <div className="absolute top-[0px] left-[0px] bg-white w-[1920px] h-[1344px]" />
-        <div className="absolute top-[100px] left-[555px] flex flex-col items-center justify-start gap-[100px]">
+        <div className="absolute top-[100px] left-[555px] desktop:left-[300px] flex flex-col items-center justify-start gap-[100px]">
           <b className="relative inline-block text-center">Our Latest Blog</b>
           <div className="relative w-[810px] h-[817px] shrink-0 text-base text-gray-1100">
             <div className="absolute top-[453px] left-[0px] w-[380px] h-[364px]">
@@ -430,52 +500,81 @@ const HomePage: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-[8616px] left-[0px] w-[1920px] h-[1229px] text-center text-xl">
+      <div className="absolute top-[8616px] desktop:top-[8000px] left-[0px] w-[1920px] h-[1229px] text-center text-xl">
         <div className="absolute top-[0px] left-[0px] bg-gray-200 w-[1920px] h-[1229px]" />
         <img
-          className="absolute top-[624px] left-[1194px] w-[139.07px] h-[131.65px] overflow-hidden"
+          className="absolute top-[624px] desktop:top-[560px]  left-[1194px] desktop:left-[950px] w-[139.07px] h-[131.65px] overflow-hidden"
           alt=""
           src="../frame19.svg"
         />
-        <div className="absolute top-[250px] left-[632px] rounded-[20px] bg-white flex flex-col p-[60px] box-border items-start justify-center gap-[50px] text-left text-gray-1300">
-          <div className="relative w-[399px] h-[140px] shrink-0">
-            <div className="absolute top-[9px] left-[190px] w-[209px] h-[121px]">
-              <div className="absolute top-[0px] left-[0px] w-[209px] h-[73px]">
-                <div className="absolute top-[0px] left-[0px] font-medium inline-block">
-                  Mainak Chakraborty
-                </div>
-                <div className="absolute top-[37px] left-[0px] text-sm inline-block w-[148px]">{`Co-founder & CEO, GPS Renewables`}</div>
-              </div>
-              <div className="absolute top-[85px] left-[0px] text-sm text-gray-1100 inline-block w-[173px]">
-                Relocated from Bangalore to Hyderabad
-              </div>
+
+        <div className="absolute top-[250px] desktop:top-[200px] left-[640px] desktop:left-[380px] rounded-[20px] bg-white flex flex-col p-[60px] box-border items-start justify-center gap-[50px] text-left text-gray-1300">
+          {/* swrhethet */}
+          {displaySlider()}
+          <div className="flex items-center justify-center">
+            <div className="inline-flex" role="group">
+              <button
+                className="mx-0.5"
+                style={{
+                  border: "0.5px solid gray",
+                  borderRadius: "50%",
+                  padding: "4px",
+                }}
+                onClick={() => onClickSlider1()}
+              ></button>
+              <button
+                className="mx-0.5"
+                style={{
+                  border: "0.5px solid gray",
+                  borderRadius: "50%",
+                  padding: "4px",
+                }}
+                onClick={() => onClickSlider2()}
+              ></button>
+              <button
+                className="mx-0.5"
+                style={{
+                  border: "0.5px solid gray",
+                  borderRadius: "50%",
+                  padding: "4px",
+                }}
+                onClick={() => onClickSlider3()}
+              ></button>
+              <button
+                className="mx-0.5"
+                style={{
+                  border: "0.5px solid gray",
+                  borderRadius: "50%",
+                  padding: "4px",
+                }}
+                onClick={() => onClickSlider4()}
+              ></button>
+              <button
+                className="mx-0.5"
+                style={{
+                  border: "0.5px solid gray",
+                  borderRadius: "50%",
+                  padding: "4px",
+                }}
+                onClick={() => onClickSlider5()}
+              ></button>
             </div>
-            <img
-              className="absolute top-[0px] left-[0px] rounded-[20px] w-[140px] h-[140px] object-cover"
-              alt=""
-              src="../rectangle-11@2x.png"
-            />
           </div>
-          <div className="relative text-base leading-[150%] text-gray-1700 inline-block w-[537px]">
-            I moved from Whitefield, Bangalore to Hyderabad with Pikkol
-            recently. I had been in Bangalore for many years, so, had
-            considerable number of items. My Whitefield house was a duplex villa
-            (without a lift) with many of these items in the first floor.
-          </div>
-          <img
+
+          {/* <img
             className="relative w-[128px] h-[12px] shrink-0"
             alt=""
             src="../group-15.svg"
-          />
+          /> */}
         </div>
-        <b className="absolute top-[100px] left-[677px] text-5xl inline-block">
+        <b className="absolute top-[100px] left-[677px] desktop:left-[450px] text-5xl inline-block">
           What our Clients are Saying
         </b>
-        <div className="absolute top-[913px] left-[313px] flex flex-col items-center justify-start gap-[100px] text-3xl">
+        <div className="absolute top-[913px] desktop:top-[750px] left-[313px] desktop:left-[70px] flex flex-col items-center justify-start gap-[100px] desktop:gap-[50px] text-3xl">
           <b className="relative inline-block">
             150+ Clients Trust White Glove
           </b>
-          <div className="rounded-[20px] flex flex-row p-[0px_30px] box-border items-center justify-center gap-[70px]">
+          <div className="rounded-[20px] flex flex-row p-[0px_30px] box-border items-center justify-center gap-[70px] desktop:gap-[50px]">
             <img
               className="relative w-[171px] h-[50px] shrink-0 object-cover"
               alt=""
@@ -580,7 +679,7 @@ const HomePage: NextPage = () => {
         </div>
       </div>
       <img
-        className="absolute top-[9372px] left-[300px] w-[1414px] h-[389px]"
+        className="absolute top-[9372px] desktop:top-[8630px]  left-[300px] desktop:left-[50px] w-[1414px] desktop:w-[1300px] h-[389px] desktop:h-[290px]"
         alt=""
         src="../vector5.svg"
       />
@@ -608,7 +707,6 @@ const HomePage: NextPage = () => {
         </div>
         <div className="flex flex-row items-start justify-start gap-[20px] text-center text-base text-gray-800">
           <div className="rounded-[10px] bg-gray-300 w-[302px] shrink-0 flex flex-row p-[16px_20px] box-border items-start justify-start">
-            {/* <div className="relative inline-block"> LRN Number</div> */}
             <input
               type="text"
               placeholder="LRN Number"
