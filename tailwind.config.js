@@ -16,8 +16,9 @@ module.exports = {
     },
     screens: {
        // => @media (max-width: 767px) { ... }
-      'mobile': {'max': '475px'},
-      ...defaultTheme.screens,
+      // 'mobile': '375px',
+      // ...defaultTheme.screens,
+      'sm': {'max': '390px'},
       'tablet': {'max': '640px'},
       'laptop': {'max': '1024px'},
       'desktop':  {'max': '1366px'},

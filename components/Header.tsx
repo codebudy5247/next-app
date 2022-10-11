@@ -52,7 +52,7 @@ const Header = () => {
     router.push("/contact-us-page");
   }, [router]);
   return (
-    <div className="absolute top-[0px] left-[0px] bg-white w-[1920px] desktop:w-[1366px] flex flex-row p-[10px_300px] desktop:p-[5px_100px] box-border items-center justify-between text-lg">
+    <div className="absolute  top-[0px] left-[0px] bg-white w-[1920px] desktop:w-[1366px] flex flex-row p-[10px_300px] desktop:p-[5px_100px] box-border items-center justify-between text-lg">
       <div className="flex flex-row items-center justify-start">
         <img
           className="relative w-[145.71px] h-[60px] shrink-0 overflow-hidden"
