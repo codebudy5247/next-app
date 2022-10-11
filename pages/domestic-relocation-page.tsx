@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
+import useWindowResize from "../hooks/useWindowResize";
 
 const DomesticRelocationPage: NextPage = () => {
   const router = useRouter();
@@ -13,8 +14,11 @@ const DomesticRelocationPage: NextPage = () => {
     router.push("/contact-us-page");
   }, [router]);
 
+  const windowSize = useWindowResize();
+
   return (
-    <div className="relative bg-white w-full h-[7774px] overflow-hidden text-left text-xl text-gray-1700 font-fedra-sans-std">
+    <>
+      <div className="relative bg-white w-full h-[7774px] overflow-hidden text-left text-xl text-gray-1700 font-fedra-sans-std">
       <img
         className="absolute top-[161px] left-[0px] w-[1920px] h-[500px] object-cover"
         alt=""
@@ -911,6 +915,7 @@ const DomesticRelocationPage: NextPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

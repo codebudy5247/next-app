@@ -9,6 +9,7 @@ import Slider3 from "../components/Slider/Slider3";
 import Slder4 from "../components/Slider/Slder4";
 import Slider5 from "../components/Slider5";
 import { useState } from "react";
+import MobileNavBar from "../components/MobileNavBar";
 
 const HomePage: NextPage = () => {
   const windowSize = useWindowResize();
@@ -87,38 +88,10 @@ const HomePage: NextPage = () => {
           <img
             className="absolute top-[60.25px] left-[0px] w-[375px] h-[81.66px]"
             alt=""
-            src="../vector.svg"
+            src="../vector6.svg"
           />
         </div>
-        <div className="absolute top-[0px] left-[0px] bg-white w-[375px] h-[56px] flex flex-row p-[25px_16px] box-border items-center justify-between text-base">
-          <div className="flex flex-row items-center justify-start">
-            <img
-              className="relative w-[77.71px] h-[32px] shrink-0 overflow-hidden"
-              alt=""
-              src="../frame.svg"
-            />
-          </div>
-          <div className="flex flex-row items-center justify-start gap-[20px]">
-            <div className="flex flex-row items-center justify-start gap-[5px]">
-              <img
-                className="relative w-[20px] h-[20px] shrink-0"
-                alt=""
-                src="../location-on.svg"
-              />
-              <div className="relative leading-[130%] font-medium inline-block">
-                Track
-              </div>
-            </div>
-            <div className="flex flex-row p-[10px_3px] box-border items-center justify-start gap-[20px] text-xl text-gray-1400 font-inter">
-              <div className="relative hidden">Ravi Kharinta</div>
-              <img
-                className="relative w-[32px] h-[32px] shrink-0"
-                alt=""
-                src="../menu.svg"
-              />
-            </div>
-          </div>
-        </div>
+        <MobileNavBar />
         <div className="absolute top-[726px] left-[567px] rounded-[10px] bg-white hidden flex-row p-[16px_40px] box-border items-center justify-center text-xl text-turquoise font-open-sans">
           <div className="relative font-semibold inline-block">
             Save this progress
@@ -191,15 +164,15 @@ const HomePage: NextPage = () => {
           </div>
         </div>
         <div className="absolute top-[821px] left-[-28px] w-[403px] h-[486px] text-2xl text-white">
-          <img
+          {/* <img
             className="absolute top-[0px] left-[28px] w-[375px] h-[486px] object-cover"
             alt=""
             src="../rectangle-14@2x.png"
-          />
+          /> */}
           <img
             className="absolute top-[322px] left-[28px] w-[305px] h-[114px]"
             alt=""
-            src="../vector1.svg"
+            src="../vector7.svg"
           />
           <div className="absolute top-[50px] left-[64px] flex flex-col items-start justify-center gap-[30px]">
             <b className="relative leading-[130%] inline-block w-[175px]">
