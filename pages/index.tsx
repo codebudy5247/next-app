@@ -164,11 +164,11 @@ const HomePage: NextPage = () => {
           </div>
         </div>
         <div className="absolute top-[821px] left-[-28px] w-[403px] h-[486px] text-2xl text-white">
-          {/* <img
+          <img
             className="absolute top-[0px] left-[28px] w-[375px] h-[486px] object-cover"
             alt=""
             src="../rectangle-14@2x.png"
-          /> */}
+          />
           <img
             className="absolute top-[322px] left-[28px] w-[305px] h-[114px]"
             alt=""
