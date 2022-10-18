@@ -401,11 +401,11 @@ const FAQMobileView = () => {
                 <div className="relative font-semibold inline-block">
                   Let’s Talk
                 </div>
-                <img
+                {/* <img
                   className="relative w-[24px] h-[24px] shrink-0 hidden"
                   alt=""
                   src="../arrow-right-alt7.svg"
-                />
+                /> */}
                 <img
                   className="relative w-[21.84px] h-[14px] shrink-0"
                   alt=""
