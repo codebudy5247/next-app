@@ -1,9 +1,37 @@
-import React,{useCallback} from 'react'
+import React, { useCallback, useState, Fragment } from "react";
 import { useRouter } from "next/router";
 import Header from "../Header";
+import FAQ from "../FAQ";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
+import SliderComponent from "./Slider";
 
+function Icon(id: any, open: any) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={`${
+        id === open ? "rotate-180" : ""
+      } h-5 w-5 transition-transform`}
+      fill="none"
+      viewBox="0 0 24 14"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+}
 const ServicesDesktopView = () => {
-    const router = useRouter();
+  const [open, setOpen] = useState(1);
+
+  const handleOpen = (value: number) => {
+    setOpen(open === value ? 0 : value);
+  };
+  const router = useRouter();
 
   const onAboutUsOurClick = useCallback(() => {
     router.push("/f-a-qs-page");
@@ -16,6 +44,7 @@ const ServicesDesktopView = () => {
   const onContactTextClick = useCallback(() => {
     router.push("/contact-us-page");
   }, [router]);
+
   return (
     <div className="relative bg-white w-full h-[8130px] overflow-hidden text-left text-5xl text-gray-1700 font-fedra-sans-std">
       <div className="absolute top-[692px] left-[883px] hidden flex-col p-[0px_20px] box-border items-center justify-center gap-[20px] text-center text-xl text-teal-100 font-open-sans">
@@ -224,7 +253,12 @@ const ServicesDesktopView = () => {
             </div>
           </div>
         </div>
-        <div className="absolute top-[457px] left-[1571px] rounded-[10px] bg-gold w-[48px] h-[48px] flex flex-row items-center justify-center">
+        <div
+          onClick={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
+          className="absolute top-[457px] left-[1571px] rounded-[10px] bg-gold w-[48px] h-[48px] flex flex-row items-center justify-center"
+        >
           <img
             className="relative w-[16px] h-[16px] shrink-0"
             alt=""
@@ -254,28 +288,14 @@ const ServicesDesktopView = () => {
         </div>
       </div>
       <div className="absolute top-[3480px] left-[298px] flex flex-col items-start justify-start gap-[100px]">
-        <div className="w-[1322px] flex flex-row items-center justify-between">
-          <div className="relative font-medium inline-block">
+        {/* <div className="w-[1322px] items-center">
+          <div className="relative font-medium inline-block text-center">
             Fulfillment Services Pricing
           </div>
-          <div className="relative w-[192px] h-[56px] shrink-0">
-            <div className="absolute top-[0px] left-[0px] rounded-[10px] bg-gray-200 flex flex-row p-[20px] box-border items-center justify-start">
-              <img
-                className="relative w-[46px] h-[16px] shrink-0"
-                alt=""
-                src="../arrow-upward4.svg"
-              />
-            </div>
-            <div className="absolute top-[0px] left-[106px] rounded-[10px] bg-gray-200 flex flex-row p-[20px] box-border items-center justify-start">
-              <img
-                className="relative w-[46px] h-[16px] shrink-0"
-                alt=""
-                src="../arrow-upward5.svg"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="relative w-[1810px] h-[502px] shrink-0 text-xs text-gray-1000">
+          <SliderComponent />
+        </div> */}
+       
+        {/* <div className="relative w-[1810px] h-[502px] shrink-0 text-xs text-gray-1000">
           <div className="absolute top-[-1px] left-[-1px] rounded-[20px] bg-gray-100 [border:1px_solid_#d9d9d9] box-border w-[262px] flex flex-col items-start justify-center">
             <div className="rounded-[20px] bg-white w-[260px] flex flex-col p-[30px_40px] box-border items-center justify-start gap-[20px] text-3xl text-gray-1700">
               <img
@@ -632,11 +652,11 @@ const ServicesDesktopView = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="relative w-[1320px] h-[5px] shrink-0">
+        </div> */}
+        {/* <div className="relative w-[1320px] h-[5px] shrink-0">
           <div className="absolute top-[0px] left-[0px] rounded-[20px] bg-gray-200 w-[1320px] h-[5px]" />
           <div className="absolute top-[0px] left-[0px] rounded-[20px] bg-teal-100 w-[900px] h-[5px]" />
-        </div>
+        </div> */}
       </div>
       <div className="absolute top-[1519px] left-[500px] flex flex-col items-center justify-start gap-[100px] text-center font-poppins">
         <b className="relative leading-[130%] inline-block w-[625px]">
@@ -689,31 +709,31 @@ solution, having emerged as a preferred packer and mover in Delhi. `}</p>
         </div>
         <div className="rounded-[20px] [border:2px_solid_#d9d9d9] box-border relative flex flex-col p-[50px] items-start justify-center gap-[40px] text-xl font-open-sans">
           <b className="relative text-3xl leading-[130%] inline-block font-poppins">
-            Quicly Inquiry
+            Quick Inquiry
           </b>
           <div className="flex flex-col items-start justify-start gap-[30px] text-gray-500">
-            <div className="border-t-[0px_solid_#ddd] border-r-[0px_solid_#ddd] border-b-[2px_solid_#ddd] border-l-[0px_solid_#ddd] box-border relative w-[420px] flex flex-row p-[16px_0px] items-center justify-start">
-              <div className="relative font-semibold inline-block">
-                Your Name
+            <div className="relative w-[420px] flex flex-row p-[16px_0px] items-center justify-start">
+              <div className="">
+               <input placeholder=" Your Name" className="text-3xl" style={{width:'400px',height:'50px'}} />
               </div>
             </div>
             <div className="border-t-[0px_solid_#ddd] border-r-[0px_solid_#ddd] border-b-[2px_solid_#ddd] border-l-[0px_solid_#ddd] box-border relative w-[420px] flex flex-row p-[16px_0px] items-center justify-start">
               <div className="relative font-semibold inline-block">
-                Mobile Number
+              <input placeholder="Mobile Number" className="text-3xl" style={{width:'400px',height:'50px'}} />
               </div>
             </div>
             <div className="border-t-[0px_solid_#ddd] border-r-[0px_solid_#ddd] border-b-[2px_solid_#ddd] border-l-[0px_solid_#ddd] box-border relative w-[420px] flex flex-row p-[16px_0px] items-center justify-start">
               <div className="relative font-semibold inline-block">
-                Email Address
+              <input placeholder="Email Address" className="text-3xl" style={{width:'400px',height:'50px'}} />
               </div>
             </div>
             <div className="border-t-[0px_solid_#ddd] border-r-[0px_solid_#ddd] border-b-[2px_solid_#ddd] border-l-[0px_solid_#ddd] box-border relative w-[420px] flex flex-row p-[16px_0px] items-center justify-start">
               <div className="relative font-semibold inline-block">
-                What do you want to Move?
+              <input placeholder="What Do You Want To Move?" className="text-3xl" style={{width:'400px',height:'50px'}} />
               </div>
             </div>
           </div>
-          <div className="rounded-[10px] bg-gold flex flex-row p-[20px_40px] box-border items-center justify-start gap-[20px]">
+          <div className="rounded-[10px] bg-gold flex flex-row p-[20px_40px] box-border items-center justify-start gap-[20px] cursor-pointer">
             <div className="relative font-semibold inline-block">
               Send Inquiry
             </div>
@@ -762,7 +782,7 @@ solution, having emerged as a preferred packer and mover in Delhi. `}</p>
           </div>
         </div>
       </div>
-      <div className="absolute top-[5553px] left-[0px] bg-gray-1700 flex flex-col p-[200px_0px_100px] box-border items-center justify-center gap-[100px] text-center text-3xl text-white">
+      <div className="absolute top-[3553px] left-[0px] bg-gray-1700 flex flex-col p-[200px_0px_100px] box-border items-center justify-center gap-[100px] text-center text-3xl text-white">
         <div className="flex flex-col items-center justify-start gap-[30px]">
           <b className="relative inline-block">We are trusted by many</b>
           <div className="relative text-xl leading-[130%] font-semibold font-open-sans inline-block w-[855px]">
@@ -845,35 +865,26 @@ solution, having emerged as a preferred packer and mover in Delhi. `}</p>
           </div>
         </div>
       </div>
-      <div className="absolute top-[4443px] left-[0px] w-[1920px] h-[1110px] text-xl">
+      {/* <div className="absolute top-[4443px] left-[0px] w-[1920px] h-[1110px] text-xl">
         <div className="absolute top-[0px] left-[0px] bg-gray-200 w-[1920px] h-[1110px]" />
         <div className="absolute top-[100px] left-[555px] flex flex-col items-center justify-start gap-[100px]">
           <b className="relative text-6xl inline-block text-center">
             FAQ about Packers and Movers
           </b>
           <div className="flex flex-col items-start justify-start text-gray-1300">
-            <div className="border-t-[0px_solid_#e8e8e8] border-r-[0px_solid_#e8e8e8] border-b-[2px_solid_#e8e8e8] border-l-[0px_solid_#e8e8e8] box-border relative w-[810px] flex flex-row p-[30px_0px] items-center justify-between">
-              <div className="relative font-medium inline-block">
+          <Fragment>
+            <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
+              <AccordionHeader
+                onClick={() => handleOpen(1)}
+                className="py-4 sm:py-8 border-b-2 border-[#E4E4E4] primaryText font-bold text-xl sm:text-2xl"
+                style={{ borderStyle: "hidden", backgroundColor: "white" }}
+              >
                 When is the best time to relocate?
-              </div>
-              <img
-                className="relative w-[40px] h-[40px] shrink-0"
-                alt=""
-                src="../arrow-forward-ios1.svg"
-              />
-            </div>
-            <div className="border-t-[0px_solid_#e8e8e8] border-r-[0px_solid_#e8e8e8] border-b-[2px_solid_#e8e8e8] border-l-[0px_solid_#e8e8e8] box-border relative w-[810px] flex flex-col p-[30px_0px] items-start justify-start gap-[20px] text-teal-100">
-              <div className="w-[810px] flex flex-row items-center justify-between">
-                <div className="relative font-medium inline-block">
-                  When should I contact relocation companies for estimates?
-                </div>
-                <img
-                  className="relative w-[40px] h-[40px] shrink-0"
-                  alt=""
-                  src="../arrow-forward-ios2.svg"
-                />
-              </div>
-              <div className="relative text-base leading-[150%] text-gray-1100 inline-block w-[748px]">
+              </AccordionHeader>
+              <AccordionBody
+                className="text-[#3c3c43] text-md"
+                style={{ color: "gray" }}
+              >
                 Try to provide moving companies with as much notice as possible,
                 especially if you are moving during the summer months (mid-May
                 to mid-September) or at the beginning or end of a month
@@ -883,29 +894,78 @@ solution, having emerged as a preferred packer and mover in Delhi. `}</p>
                 delivery dates you desire. Add even more time to make a decision
                 if you are obligated by your employer to submit estimates for
                 approval.
-              </div>
-            </div>
-            <div className="border-t-[0px_solid_#e8e8e8] border-r-[0px_solid_#e8e8e8] border-b-[2px_solid_#e8e8e8] border-l-[0px_solid_#e8e8e8] box-border relative w-[810px] flex flex-row p-[30px_0px] items-center justify-between">
-              <div className="relative font-medium inline-block">
-                How could your company's prices differ from others?
-              </div>
-              <img
-                className="relative w-[40px] h-[40px] shrink-0"
-                alt=""
-                src="../arrow-forward-ios3.svg"
-              />
-            </div>
-            <div className="border-t-[0px_solid_#e8e8e8] border-r-[0px_solid_#e8e8e8] border-b-[2px_solid_#e8e8e8] border-l-[0px_solid_#e8e8e8] box-border relative w-[810px] flex flex-row p-[30px_0px] items-center justify-between">
-              <div className="relative font-medium inline-block w-[718px] shrink-0">
-                There are major differences between the movers’ estimated
-                volumes. How do I deal with this?
-              </div>
-              <img
-                className="relative w-[40px] h-[40px] shrink-0"
-                alt=""
-                src="../arrow-forward-ios4.svg"
-              />
-            </div>
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
+              <AccordionHeader
+                onClick={() => handleOpen(2)}
+                className="py-4 sm:py-8 border-b-2 border-[#E4E4E4] primaryText font-bold text-xl sm:text-2xl"
+                style={{ borderStyle: "hidden", backgroundColor: "white" }}
+              >
+                When is the best time to relocate?
+              </AccordionHeader>
+              <AccordionBody
+                className="text-[#3c3c43] text-md"
+                style={{ color: "gray" }}
+              >
+                Try to provide moving companies with as much notice as possible,
+                especially if you are moving during the summer months (mid-May
+                to mid-September) or at the beginning or end of a month
+                (regardless of the season). We recommend making arrangements at
+                least four to six weeks before your desired moving date. This
+                will increase your likelihood of securing the pickup and
+                delivery dates you desire. Add even more time to make a decision
+                if you are obligated by your employer to submit estimates for
+                approval.
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
+              <AccordionHeader
+                onClick={() => handleOpen(3)}
+                className="py-4 sm:py-8 border-b-2 border-[#E4E4E4] primaryText font-bold text-xl sm:text-2xl"
+                style={{ borderStyle: "hidden", backgroundColor: "white" }}
+              >
+                When is the best time to relocate?
+              </AccordionHeader>
+              <AccordionBody
+                className="text-[#3c3c43] text-md"
+                style={{ color: "gray" }}
+              >
+                Try to provide moving companies with as much notice as possible,
+                especially if you are moving during the summer months (mid-May
+                to mid-September) or at the beginning or end of a month
+                (regardless of the season). We recommend making arrangements at
+                least four to six weeks before your desired moving date. This
+                will increase your likelihood of securing the pickup and
+                delivery dates you desire. Add even more time to make a decision
+                if you are obligated by your employer to submit estimates for
+                approval.
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
+              <AccordionHeader
+                onClick={() => handleOpen(4)}
+                className="py-4 sm:py-8 border-b-2 border-[#E4E4E4] primaryText font-bold text-xl sm:text-2xl"
+                style={{ borderStyle: "hidden", backgroundColor: "white" }}
+              >
+                When is the best time to relocate?
+              </AccordionHeader>
+              <AccordionBody
+                className="text-[#3c3c43] text-md"
+                style={{ color: "gray" }}
+              >
+                Try to provide moving companies with as much notice as possible,
+                especially if you are moving during the summer months (mid-May
+                to mid-September) or at the beginning or end of a month
+                (regardless of the season). We recommend making arrangements at
+                least four to six weeks before your desired moving date. This
+                will increase your likelihood of securing the pickup and
+                delivery dates you desire. Add even more time to make a decision
+                if you are obligated by your employer to submit estimates for
+                approval.
+              </AccordionBody>
+            </Accordion>
+          </Fragment>
           </div>
           <div className="rounded-[10px] [border:1px_solid_#439fd9] box-border relative flex flex-row p-[30px_40px] items-center justify-start gap-[20px] text-teal-100">
             <div className="relative inline-block">View all FAQs</div>
@@ -921,7 +981,7 @@ solution, having emerged as a preferred packer and mover in Delhi. `}</p>
             />
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="absolute top-[6527px] left-[0px] bg-gray-100 w-[1920px] flex flex-col p-[200px_100px_100px] box-border items-center justify-start gap-[100px] text-center">
         <b className="relative leading-[130%] inline-block">
           Location we Services in Delhi
@@ -1057,7 +1117,7 @@ solution, having emerged as a preferred packer and mover in Delhi. `}</p>
       </div>
       <Header />
     </div>
-  )
-}
+  );
+};
 
-export default ServicesDesktopView
+export default ServicesDesktopView;

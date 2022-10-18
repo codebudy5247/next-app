@@ -3,7 +3,9 @@ import {
     Accordion,
     AccordionHeader,
     AccordionBody,
+    MobileNav,
   } from "@material-tailwind/react";
+import MobileNavBar from '../MobileNavBar';
 
   function Icon(id: any, open: any) {
     return (
@@ -413,6 +415,7 @@ const FAQMobileView = () => {
                 />
               </div>
             </div>
+            {/* <MobileNavBar /> */}
             <div className="absolute top-[0px] left-[0px] bg-white w-[375px] h-[56px] flex flex-row p-[25px_16px] box-border items-center justify-between text-base text-gray-1600">
               <div className="flex flex-row items-center justify-start">
                 <img
