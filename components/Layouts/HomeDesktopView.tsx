@@ -7,8 +7,18 @@ import Slider5 from "../Slider5";
 import Header from '../Header';
 import FAQ from '../FAQ';
 import Footer from '../Footer';
+import { useRouter } from "next/router";
+import Select from 'react-select'
+
+const options = [
+  { value: 'mobile_number', label: 'Mobile Number' },
+  { value: 'trackingId', label: 'Tracking ID' },
+  { value: 'lrn', label: 'LTL Shipment(LRN)' },
+  { value: 'orderId', label: 'Order ID/Ref ID' }
+]
 
 const HomeDesktopView = () =>{
+  const router = useRouter()
     // slider
     const [slide1, setSlide1] = useState(true);
     const [slide2, setSlide2] = useState(false);
@@ -70,8 +80,15 @@ const HomeDesktopView = () =>{
       }
     };
   
-    const handleClickTrack = () => {};
-    const handleClickLetsTalk = () => {};
+    const handleClickTrack = () => {
+      alert("Enter valid LRN number")
+    };
+    const handleClickLetsTalk = () => {
+       router.push('/contact-us-page')
+    };
+    const exploreAllCity = () =>{
+      router.push('domestic-relocation-page')
+    }
    return (
      <div className="relative bg-white w-full desktop:w-[min-w-fit] h-[10510px] desktop:h-[9620px] overflow-hidden  text-left text-5xl text-gray-1700 font-fedra-sans-std">
        <div className="absolute top-[0px] left-[0px] bg-gray-100 w-[1920px] sm:w-[375px] h-[637px] sm:h-[450px]" />
@@ -95,8 +112,8 @@ const HomeDesktopView = () =>{
            <p className="[margin-block-start:0] [margin-block-end:0px]">{`We make your `}</p>
            <p className="m-[0]">Moving Easy</p>
          </b>
-         <div className="rounded-[10px] bg-gold flex flex-row p-[20px] box-border items-center justify-start gap-[20px] text-base">
-           <div className="relative font-medium inline-block">
+         <div className="rounded-[10px] bg-gold flex flex-row p-[20px] box-border items-center justify-start gap-[20px] text-base cursor-pointer">
+           <div className="relative font-medium inline-block ">
              Calculate Moving Prices
            </div>
            <img
@@ -346,7 +363,7 @@ const HomeDesktopView = () =>{
                />
              </div>
            </div>
-           <div className="rounded-[10px] [border:1px_solid_#439fd9] box-border relative flex flex-row p-[20px_30px] items-center justify-start gap-[20px] text-xl text-teal-100 font-open-sans">
+           <div className="rounded-[10px] [border:1px_solid_#439fd9] box-border relative flex flex-row p-[20px_30px] items-center justify-start gap-[20px] text-xl text-teal-100 font-open-sans cursor-pointer">
              <div className="relative font-semibold inline-block">
                View all Blogs
              </div>
@@ -400,10 +417,10 @@ const HomeDesktopView = () =>{
                Get local advice for your request. Our team is always there for
                you.
              </div>
-             <div className="rounded-[10px] bg-gray-1700 flex flex-row p-[20px] box-border items-center justify-start gap-[20px] text-xl text-white">
+             <div className="rounded-[10px] bg-gray-1700 flex flex-row p-[20px] box-border items-center justify-start gap-[20px] text-xl text-white cursor-pointer" onClick={() => handleClickLetsTalk()}>
                <div
                  className="relative font-medium inline-block"
-                 onClick={() => handleClickLetsTalk()}
+                 
                >
                  Let’s Talk
                </div>
@@ -658,7 +675,7 @@ const HomeDesktopView = () =>{
                <div className="relative inline-block">Chennai</div>
              </div>
            </div>
-           <div className="rounded-[10px] [border:1px_solid_#439fd9] box-border relative flex flex-row p-[30px_40px] items-center justify-start gap-[20px] text-left">
+           <div className="rounded-[10px] [border:1px_solid_#439fd9] box-border relative flex flex-row p-[30px_40px] items-center justify-start gap-[20px] text-left cursor-pointer" onClick={() =>exploreAllCity()}>
              <div className="relative inline-block">Explore All Cities</div>
              <img
                className="relative w-[24px] h-[24px] shrink-0 hidden"
@@ -673,11 +690,11 @@ const HomeDesktopView = () =>{
            </div>
          </div>
        </div>
-       <img
+       {/* <img
          className="absolute top-[9372px] desktop:top-[8630px]  left-[300px] desktop:left-[50px] w-[1414px] desktop:w-[1300px] h-[389px] desktop:h-[290px]"
          alt=""
          src="../vector5.svg"
-       />
+       /> */}
        <div className="absolute top-[750px] desktop:top-[735px] left-[380px] desktop:left-[130px] rounded-[20px] bg-gray-1700 flex flex-row p-[40px_50px] desktop:p-[30px_40px] box-border items-center justify-center gap-[50px] desktop:gap-[40px] text-2xl text-white">
          <div className="flex flex-row items-center justify-start gap-[16px]">
            <img
@@ -691,13 +708,8 @@ const HomeDesktopView = () =>{
          </div>
          <div className="flex flex-col items-start justify-center gap-[16px] text-sm text-teal-100">
            <div className="relative inline-block">Choose Order Type</div>
-           <div className="w-[244px] flex flex-row items-center justify-between text-xl text-white">
-             <div className="relative inline-block">LTL Shipment (LRN)</div>
-             <img
-               className="relative w-[24px] h-[24px] shrink-0"
-               alt=""
-               src="../arrow-forward-ios25.svg"
-             />
+           <div className="w-[244px] flex flex-row items-center  text-xl text-black">
+             <Select options={options} /> 
            </div>
          </div>
          <div className="flex flex-row items-start justify-start gap-[20px] text-center text-base text-gray-800">
@@ -709,10 +721,9 @@ const HomeDesktopView = () =>{
                style={{ width: "100%", height: "100%", borderStyle: "none" }}
              />
            </div>
-           <div className="rounded-[10px] bg-gold w-[175px] shrink-0 flex flex-row p-[16px_20px] box-border items-center justify-center text-gray-1700">
+           <div className="rounded-[10px] bg-gold w-[175px] shrink-0 flex flex-row p-[16px_20px] box-border items-center justify-center text-gray-1700 cursor-pointer"  onClick={() => handleClickTrack()}>
              <div
-               className="relative font-medium inline-block"
-               onClick={() => handleClickTrack()}
+               className="relative font-medium inline-block " 
              >
                Track
              </div>

@@ -138,7 +138,7 @@ export default function FAQ() {
             </Fragment>
           </div>
         </div>
-        <div className="rounded-[10px] [border:1px_solid_#439fd9] box-border relative flex flex-row p-[30px_40px] items-center justify-start gap-[20px] text-teal-100">
+        <div className="rounded-[10px] [border:1px_solid_#439fd9] box-border relative flex flex-row p-[30px_40px] items-center justify-start gap-[20px] text-teal-100 cursor-pointer">
           <div className="relative inline-block" onClick={onClick}>View all FAQs</div>
           <img
             className="relative w-[24px] h-[24px] shrink-0 hidden"

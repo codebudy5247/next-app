@@ -19,11 +19,11 @@ module.exports = {
       'laptop': {'max': '1024px'},
       'desktop':  {'max': '1366px'},
     },
-    extend: {
-      screens: {
-        'large-screen': {'max': '1920px'},
-      },
-    },
+    // extend: {
+    //   screens: {
+    //     'large-screen': {'max': '1920px'},
+    //   },
+    // },
     colors: {
       white: "#fff",
       gold: "#f7c600",
