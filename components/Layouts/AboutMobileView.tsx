@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import NavPopup from "../NavPopup";
+import { useRouter } from "next/router";
 
 const AboutMobileView = () => {
+  const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+
+  const letsTalk = () => {
+    router.push("/contact-us-page");
+  };
   return (
     <>
       <div className="relative bg-white w-full h-[5652px] overflow-hidden text-left text-2xl text-white font-fedra-sans-std">
@@ -400,7 +406,7 @@ const AboutMobileView = () => {
               Let’s discuss further with our expert.
             </div>
           </div>
-          <div className="rounded-[10px] bg-gold w-[303px] flex flex-row p-[20px_0px] box-border items-center justify-center gap-[20px] text-left text-xl text-gray-1600 font-open-sans">
+          <div className="rounded-[10px] bg-gold w-[303px] flex flex-row p-[20px_0px] box-border items-center justify-center gap-[20px] text-left text-xl text-gray-1600 font-open-sans"  onClick={() => letsTalk}>
             <div className="relative font-semibold inline-block">
               Let’s Talk
             </div>
