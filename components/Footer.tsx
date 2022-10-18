@@ -183,7 +183,12 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-[457px] left-[1571px] rounded-[10px] bg-gold w-[48px] h-[48px] flex flex-row items-center justify-center">
+      <div
+        onClick={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }}
+        className="absolute top-[457px] left-[1571px] rounded-[10px] bg-gold w-[48px] h-[48px] flex flex-row items-center justify-center"
+      >
         <img
           className="relative w-[16px] h-[16px] shrink-0"
           alt=""

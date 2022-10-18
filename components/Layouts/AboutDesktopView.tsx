@@ -1,8 +1,17 @@
-import React from "react";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 const AboutDesktopView = () => {
   const router = useRouter();
+
+  const [tab1, setTab1] = useState(true);
+  const [tab2, setTab2] = useState(false);
+  const [tab3, setTab3] = useState(false);
+  const [tab4, setTab4] = useState(false);
+
+  const [tab1Color, setTab1Color] = useState("blue");
+  const [tab2Color, setTab2Color] = useState("");
+  const [tab3Color, setTab3Color] = useState("");
+  const [tab4Color, setTab4Color] = useState("");
 
   const onHomeTextClick = useCallback(() => {
     router.push("/");
@@ -15,6 +24,52 @@ const AboutDesktopView = () => {
   const onAboutUsOurClick = useCallback(() => {
     router.push("/f-a-qs-page");
   }, [router]);
+
+  const ourCulture = () => {
+    setTab1(true);
+    setTab2(false);
+    setTab3(false);
+    setTab4(false);
+    setTab1Color("blue");
+    setTab2Color("gray");
+    setTab3Color("gray");
+    setTab4Color("gray");
+  };
+
+  const ourMission = () => {
+    setTab1(false);
+    setTab2(true);
+    setTab3(false);
+    setTab4(false);
+    setTab1Color("gray");
+    setTab2Color("blue");
+    setTab3Color("gray");
+    setTab4Color("gray");
+  };
+  const ourVision = () => {
+    setTab1(false);
+    setTab2(false);
+    setTab3(true);
+    setTab4(false);
+    setTab1Color("gray");
+    setTab2Color("gray");
+    setTab3Color("blue");
+    setTab4Color("gray");
+  };
+  const ourValues = () => {
+    setTab1(false);
+    setTab2(false);
+    setTab3(false);
+    setTab4(true);
+    setTab1Color("gray");
+    setTab2Color("gray");
+    setTab3Color("gray");
+    setTab4Color("blue");
+  };
+
+  const letsTalk = () => {
+    router.push("/contact-us-page");
+  };
   return (
     <div className="relative bg-white w-full h-[7933px] overflow-hidden text-left text-xl text-white font-open-sans">
       <div className="absolute top-[0px] left-[0px] bg-gray-1700 w-[1920px] h-[940px]" />
@@ -312,7 +367,12 @@ const AboutDesktopView = () => {
             </div>
           </div>
         </div>
-        <div className="absolute top-[457px] left-[1571px] rounded-[10px] bg-gold w-[48px] h-[48px] flex flex-row items-center justify-center">
+        <div
+          onClick={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
+          className="absolute top-[457px] left-[1571px] rounded-[10px] bg-gold w-[48px] h-[48px] flex flex-row items-center justify-center"
+        >
           <img
             className="relative w-[16px] h-[16px] shrink-0"
             alt=""
@@ -355,108 +415,162 @@ const AboutDesktopView = () => {
           src="../group-78.svg"
         />
         <div className="absolute top-[200px] left-[306px] flex flex-col items-start justify-start gap-[20px]">
-          <div className="border-t-[0px_solid_#f7c600] border-r-[0px_solid_#f7c600] border-b-[0px_solid_#f7c600] border-l-[5px_solid_#f7c600] box-border relative w-[289px] flex flex-row p-[10px_30px] items-center justify-start text-teal-100">
-            <b className="relative inline-block">Our Culture</b>
+          <div
+            onClick={ourCulture}
+            className="border-t-[0px_solid_#f7c600] border-r-[0px_solid_#f7c600] border-b-[0px_solid_#f7c600] border-l-[5px_solid_#f7c600] box-border relative w-[289px] flex flex-row p-[10px_30px] items-center justify-start"
+          >
+            <b
+              className="relative inline-block"
+              style={{ color: `${tab1Color}` }}
+            >
+              Our Culture
+            </b>
           </div>
-          <div className="flex flex-row p-[10px_30px] box-border items-center justify-start">
-            <div className="relative font-medium inline-block">Our Mission</div>
+          <div
+            onClick={ourMission}
+            className="flex flex-row p-[10px_30px] box-border items-center justify-start"
+          >
+            <div
+              className="relative  inline-block font-bold"
+              style={{ color: `${tab2Color}` }}
+            >
+              Our Mission
+            </div>
           </div>
-          <div className="flex flex-row p-[10px_30px] box-border items-center justify-start">
-            <div className="relative font-medium inline-block">{`Drive & Vision`}</div>
+          <div
+            onClick={ourVision}
+            className="flex flex-row p-[10px_30px] box-border items-center justify-start"
+          >
+            <div
+              className="relative  inline-block font-bold"
+              style={{ color: `${tab3Color}` }}
+            >{`Drive & Vision`}</div>
           </div>
-          <div className="flex flex-row p-[10px_30px] box-border items-center justify-start">
-            <div className="relative font-medium inline-block">Our Values</div>
+          <div
+            onClick={ourValues}
+            className="flex flex-row p-[10px_30px] box-border items-center justify-start"
+          >
+            <div
+              className="relative inline-block font-bold"
+              style={{ color: `${tab4Color}` }}
+            >
+              Our Values
+            </div>
           </div>
         </div>
         <div className="absolute top-[200px] left-[922px] flex flex-col items-start justify-center gap-[300px] text-5xl text-teal-100">
-          <div className="relative w-[366px] h-[386px] shrink-0">
-            <div className="absolute top-[0px] left-[0px] flex flex-col items-start justify-start gap-[30px]">
-              <img
-                className="relative w-[119.03px] h-[120px] shrink-0"
-                alt=""
-                src="../group-82.svg"
-              />
-              <div className="flex flex-row items-center justify-start">
-                <b className="relative leading-[130%] inline-block">
-                  Our Culture
-                </b>
+          {tab1 ? (
+            <>
+              <div className="relative w-[366px] h-[386px] shrink-0">
+                <div className="absolute top-[0px] left-[0px] flex flex-col items-start justify-start gap-[30px]">
+                  <img
+                    className="relative w-[119.03px] h-[120px] shrink-0"
+                    alt=""
+                    src="../group-82.svg"
+                  />
+                  <div className="flex flex-row items-center justify-start">
+                    <b className="relative leading-[130%] inline-block">
+                      Our Culture
+                    </b>
+                  </div>
+                  <img
+                    className="relative w-[36.24px] h-[23px] shrink-0"
+                    alt=""
+                    src="../group-696.svg"
+                  />
+                  <div className="relative text-xl leading-[130%] font-semibold font-open-sans text-gray-1000 inline-block w-[366px]">
+                    White Glove specializes in offering corporate shifting
+                    services, tailor-made for specific categories of goods.
+                    Share your requirements.
+                  </div>
+                </div>
               </div>
-              <img
-                className="relative w-[36.24px] h-[23px] shrink-0"
-                alt=""
-                src="../group-696.svg"
-              />
-              <div className="relative text-xl leading-[130%] font-semibold font-open-sans text-gray-1000 inline-block w-[366px]">
-                White Glove specializes in offering corporate shifting services,
-                tailor-made for specific categories of goods. Share your
-                requirements.
+            </>
+          ) : (
+            <></>
+          )}
+          {tab2 ? (
+            <>
+              <div className="relative w-[366px] h-[336px] shrink-0">
+                <div className="absolute top-[0px] left-[0px] flex flex-col items-start justify-start gap-[30px]">
+                  <img
+                    className="relative w-[126.68px] h-[120px] shrink-0"
+                    alt=""
+                    src="../group-83.svg"
+                  />
+                  <div className="flex flex-row items-center justify-start">
+                    <b className="relative leading-[130%] inline-block">
+                      Our Mission
+                    </b>
+                  </div>
+                  <div className="relative text-xl leading-[130%] font-semibold font-open-sans text-gray-1000 inline-block w-[366px]">
+                    White Glove specializes in offering corporate shifting
+                    services, tailor-made for specific categories of goods.
+                    Share your requirements.
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="relative w-[366px] h-[336px] shrink-0">
-            <div className="absolute top-[0px] left-[0px] flex flex-col items-start justify-start gap-[30px]">
-              <img
-                className="relative w-[126.68px] h-[120px] shrink-0"
-                alt=""
-                src="../group-83.svg"
-              />
-              <div className="flex flex-row items-center justify-start">
-                <b className="relative leading-[130%] inline-block">
-                  Our Mission
-                </b>
+            </>
+          ) : (
+            <></>
+          )}
+          {tab3 ? (
+            <>
+              <div className="relative w-[366px] h-[336px] shrink-0">
+                <div className="absolute top-[0px] left-[0px] flex flex-col items-start justify-start gap-[30px]">
+                  <img
+                    className="relative w-[144.07px] h-[120px] shrink-0"
+                    alt=""
+                    src="../group-85.svg"
+                  />
+                  <div className="flex flex-row items-center justify-start">
+                    <b className="relative leading-[130%] inline-block">{`Drive & Vision`}</b>
+                  </div>
+                  <div className="relative text-xl leading-[130%] font-semibold font-open-sans text-gray-1000 inline-block w-[366px]">
+                    White Glove specializes in offering corporate shifting
+                    services, tailor-made for specific categories of goods.
+                    Share your requirements.
+                  </div>
+                </div>
               </div>
-              <div className="relative text-xl leading-[130%] font-semibold font-open-sans text-gray-1000 inline-block w-[366px]">
-                White Glove specializes in offering corporate shifting services,
-                tailor-made for specific categories of goods. Share your
-                requirements.
+            </>
+          ) : (
+            <></>
+          )}
+          {tab4 ? (
+            <>
+              <div className="relative w-[366px] h-[414px] shrink-0">
+                <div className="absolute top-[0px] left-[0px] flex flex-col items-start justify-start gap-[30px]">
+                  <img
+                    className="relative w-[134.81px] h-[120px] shrink-0 overflow-hidden"
+                    alt=""
+                    src="../frame6.svg"
+                  />
+                  <div className="flex flex-row items-center justify-start">
+                    <b className="relative leading-[130%] inline-block">
+                      Our Values
+                    </b>
+                  </div>
+                  <div className="relative text-[inherit] leading-[130%] font-semibold font-inherit text-gray-1000 inline-block w-[366px]">
+                    <p className="[margin-block-start:0] [margin-block-end:0px]">
+                      White Glove specializes in offering corporate shifting
+                      services, tailor-made for specific categories of goods.
+                      Share your requirements.
+                    </p>
+                    <p className="[margin-block-start:0] [margin-block-end:0px]">
+                      &nbsp;
+                    </p>
+                    <ul className="m-[0] pl-[27px]">
+                      <li className="mb-[0px]">Heartiness</li>
+                      <li>Chase Progress</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="relative w-[366px] h-[336px] shrink-0">
-            <div className="absolute top-[0px] left-[0px] flex flex-col items-start justify-start gap-[30px]">
-              <img
-                className="relative w-[144.07px] h-[120px] shrink-0"
-                alt=""
-                src="../group-85.svg"
-              />
-              <div className="flex flex-row items-center justify-start">
-                <b className="relative leading-[130%] inline-block">{`Drive & Vision`}</b>
-              </div>
-              <div className="relative text-xl leading-[130%] font-semibold font-open-sans text-gray-1000 inline-block w-[366px]">
-                White Glove specializes in offering corporate shifting services,
-                tailor-made for specific categories of goods. Share your
-                requirements.
-              </div>
-            </div>
-          </div>
-          <div className="relative w-[366px] h-[414px] shrink-0">
-            <div className="absolute top-[0px] left-[0px] flex flex-col items-start justify-start gap-[30px]">
-              <img
-                className="relative w-[134.81px] h-[120px] shrink-0 overflow-hidden"
-                alt=""
-                src="../frame6.svg"
-              />
-              <div className="flex flex-row items-center justify-start">
-                <b className="relative leading-[130%] inline-block">
-                  Our Values
-                </b>
-              </div>
-              <div className="relative text-[inherit] leading-[130%] font-semibold font-inherit text-gray-1000 inline-block w-[366px]">
-                <p className="[margin-block-start:0] [margin-block-end:0px]">
-                  White Glove specializes in offering corporate shifting
-                  services, tailor-made for specific categories of goods. Share
-                  your requirements.
-                </p>
-                <p className="[margin-block-start:0] [margin-block-end:0px]">
-                  &nbsp;
-                </p>
-                <ul className="m-[0] pl-[27px]">
-                  <li className="mb-[0px]">Heartiness</li>
-                  <li>Chase Progress</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
         <img
           className="absolute top-[775px] left-[6px] w-[306px] h-[171px]"
@@ -524,7 +638,10 @@ const AboutDesktopView = () => {
             Let’s discuss further with our expert.
           </div>
         </div>
-        <div className="rounded-[10px] bg-gold flex flex-row p-[20px_40px] box-border items-center justify-start gap-[20px] text-xl text-gray-1700 font-open-sans">
+        <div
+          onClick={() => letsTalk()}
+          className="rounded-[10px] bg-gold flex flex-row p-[20px_40px] box-border items-center justify-start gap-[20px] text-xl text-gray-1700 font-open-sans"
+        >
           <div className="relative font-semibold inline-block">Let’s Talk</div>
           <img
             className="relative w-[24px] h-[24px] shrink-0 hidden"
