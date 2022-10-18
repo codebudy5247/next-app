@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/about-page": [
+    "/f-a-qs-page": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/about-page.js"
+      "static/chunks/pages/f-a-qs-page.js"
     ]
   },
   "ampFirstPages": []
