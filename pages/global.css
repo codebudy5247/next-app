@@ -25,3 +25,30 @@ body {
 .loader div:nth-child(3) {
   animation-delay: 0.6s;
 }
+
+#slider-container article {
+  display: grid !important;
+  width: 10rem !important;
+  margin: 2rem auto;
+}
+
+.slick-slider .slick-arrow:before {
+  color: #333;
+  font-size: 2rem;
+}
+
+.slick-slider .slick-dots button:before {
+  font-size: 1.5rem;
+  color: teal;
+}
+
+.slick-slider .slick-dots li.slick-active button::before {
+  color: teal;
+}
+.slick-slider .slick-dots {
+  bottom: -44px;
+}
+
+.slick-slider .slick-dots li {
+  margin: 0 0.5rem;
+}

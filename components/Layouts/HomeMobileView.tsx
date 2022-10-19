@@ -1,72 +1,122 @@
-import React, { Fragment,useState } from "react";
+import React, { Fragment, useState } from "react";
 import MobileNavBar from "../MobileNavBar";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import{ useRouter } from "next/router";
+import { useRouter } from "next/router";
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import Select from 'react-select'
-import Slider from "../Layouts/Slider"
+import Select from "react-select";
+import Slider from "./Slider";
+
 const options = [
-  { value: 'mobile_number', label: 'Mobile Number' },
-  { value: 'trackingId', label: 'Tracking ID' },
-  { value: 'lrn', label: 'LTL Shipment(LRN)' },
-  { value: 'orderId', label: 'Order ID/Ref ID' }
-]
+  { value: "mobile_number", label: "Mobile Number" },
+  { value: "trackingId", label: "Tracking ID" },
+  { value: "lrn", label: "LTL Shipment(LRN)" },
+  { value: "orderId", label: "Order ID/Ref ID" },
+];
 
-
-const Slider1 = () =>{
+const Slider1 = () => {
   return (
     <div className="absolute top-[0px] left-[0px] rounded-[20px] bg-gray-200 [border:1px_solid_#c9e3f4] box-border w-[323px] flex flex-col p-[30px_20px] items-center justify-center gap-[50px]">
-    <img
-      className="relative w-[280px] h-[157px] shrink-0 object-cover"
-      alt=""
-      src="../worldwide-delivery-1@2x.png"
-    />
-    <div className="w-[279px] flex flex-col items-start justify-start gap-[20px]">
-      <div className="bg-gray-200 flex flex-row p-[10px_0px] box-border items-center justify-center gap-[10px] text-base">
-        <img
-          className="relative w-[40px] h-[40px] shrink-0"
-          alt=""
-          src="../language.svg"
-        />
-        <div className="relative font-medium inline-block w-[102px] shrink-0">
-          International Relocation
+      <img
+        className="relative w-[280px] h-[157px] shrink-0 object-cover"
+        alt=""
+        src="../worldwide-delivery-1@2x.png"
+      />
+      <div className="w-[279px] flex flex-col items-start justify-start gap-[20px]">
+        <div className="bg-gray-200 flex flex-row p-[10px_0px] box-border items-center justify-center gap-[10px] text-base">
+          <img
+            className="relative w-[40px] h-[40px] shrink-0"
+            alt=""
+            src="../language.svg"
+          />
+          <div className="relative font-medium inline-block w-[102px] shrink-0">
+            International Relocation
+          </div>
         </div>
+        <b className="relative text-2xl leading-[130%] inline-block text-gray-1600 w-[242px]">{`Great & Affordable Shifting Services`}</b>
+        <div className="relative text-gray-1000 inline-block w-[279px]">{`Receive fixed-price, individualized plans and reserve your move without having to worry about hidden fees. `}</div>
+        <div className="relative inline-block">Read More</div>
       </div>
-      <b className="relative text-2xl leading-[130%] inline-block text-gray-1600 w-[242px]">{`Great & Affordable Shifting Services`}</b>
-      <div className="relative text-gray-1000 inline-block w-[279px]">{`Receive fixed-price, individualized plans and reserve your move without having to worry about hidden fees. `}</div>
-      <div className="relative inline-block">Read More</div>
+      {/* <button>wdvecwdfv</button> */}
     </div>
-  </div>
-  )
-}
-const Slider2 = () =>{
- return (
-  <div className="absolute top-[0px] left-[343px] rounded-[20px] bg-gray-200 [border:1px_solid_#c9e3f4] box-border w-[323px] flex flex-col p-[30px_20px] items-center justify-center gap-[50px]">
-        <img
-          className="relative w-[280px] h-[157px] shrink-0 object-cover"
-          alt=""
-          src="../worldwide-delivery-11@2x.png"
-        />
-        <div className="w-[279px] flex flex-col items-start justify-start gap-[20px]">
-          <div className="bg-gray-200 flex flex-row p-[10px_0px] box-border items-center justify-center gap-[10px] text-base">
-            <img className="relative w-[40px] h-[40px] shrink-0" alt="" />
-            <div className="relative font-medium inline-block w-[102px] shrink-0">
-              International Relocation
+  );
+};
+const Slider2 = () => {
+  return (
+    <div className="absolute top-[0px] left-[0px] rounded-[20px] bg-gray-200 [border:1px_solid_#c9e3f4] box-border w-[323px] flex flex-col p-[30px_20px] items-center justify-center gap-[50px]">
+      {/* <img
+        className="relative w-[280px] h-[157px] shrink-0 object-cover"
+        alt=""
+        src="../worldwide-delivery-1@2x.png"
+      /> */}
+      <div className="w-[279px] flex flex-col items-start justify-start gap-[20px]">
+        <div className="bg-gray-200 flex flex-row p-[10px_0px] box-border items-center justify-center gap-[10px] text-base">
+          <img
+            className="relative w-[40px] h-[40px] shrink-0"
+            alt=""
+            src="../language.svg"
+          />
+          <div className="relative font-medium inline-block w-[102px] shrink-0">
+            Domestic Relocation
+          </div>
+        </div>
+        <b className="relative text-2xl leading-[130%] inline-block text-gray-1600 w-[242px]">{`Great & Affordable Shifting Services`}</b>
+        <div className="relative text-gray-1000 inline-block w-[279px]">{`Receive fixed-price, individualized plans and reserve your move without having to worry about hidden fees. `}</div>
+        <div className="relative inline-block">Read More</div>
+      </div>
+      {/* <button>wdvecwdfv</button> */}
+    </div>
+  );
+};
+const LogisticFullfillmentSlide1 = () =>{
+
+  return (
+    <div className="rounded-[20px] bg-white flex flex-col p-[20px] box-border items-start justify-center gap-[20px]">
+            <div className="relative font-extrabold inline-block">01</div>
+            <img
+              className="relative w-[39.11px] h-[32px] shrink-0"
+              alt=""
+              src="../sticky-note-2.svg"
+            />
+            <div className="flex flex-col items-start justify-start gap-[20px] text-lg text-gray-1600 font-fedra-sans-std">
+              <div className="relative font-medium inline-block w-[191px]">
+                Convenient Booking
+              </div>
+              <div className="relative text-base text-gray-1000 inline-block w-[191px]">
+                <p className="[margin-block-start:0] [margin-block-end:0px]">
+                  Book on your schedule and get estimates instantly with the
+                  help of our dedicated customer service agents.
+                </p>
+              </div>
             </div>
           </div>
-          <b className="relative text-2xl leading-[130%] inline-block text-gray-1600 w-[242px]">{`Great & Affordable Shifting Services`}</b>
-          <div className="relative text-gray-1000 inline-block w-[279px]">{`Receive fixed-price, individualized plans and reserve your move without having to worry about hidden fees. `}</div>
-          <div className="relative inline-block">Read More</div>
-        </div>
-      </div>
- )
+  )
 }
-
+const LogisticFullfillmentSlide2 = () =>{
+  return(
+    <div className="rounded-[20px] bg-white flex flex-col p-[20px] box-border items-start justify-center gap-[20px]">
+            <div className="relative font-extrabold inline-block">02</div>
+            {/* <img
+              className="relative w-[39.11px] h-[32px] shrink-0"
+              alt=""
+              src="../sticky-note-2.svg"
+            /> */}
+            <div className="flex flex-col items-start justify-start gap-[20px] text-lg text-gray-1600 font-fedra-sans-std">
+              <div className="relative font-medium inline-block w-[191px]">
+               Booking
+              </div>
+              <div className="relative text-base text-gray-1000 inline-block w-[191px]">
+                <p className="[margin-block-start:0] [margin-block-end:0px]">
+                  Book on your schedule and get estimates instantly with the
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+  )
+}
 function Icon(id: any, open: any) {
   return (
     <svg
@@ -85,26 +135,64 @@ function Icon(id: any, open: any) {
 }
 
 const HomeMobileView = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [slide1, setSlide1] = useState(true);
   const [slide2, setSlide2] = useState(false);
 
+  const [logisticFullfillMent1, setLogisticFullfillMent1] = useState(true);
+  const [logisticFullfillMent2, setLogisticFullfillMent2] = useState(false);
+
+  const logisticFullfillMent_1 = () =>{
+    setLogisticFullfillMent1(true)
+    setLogisticFullfillMent2(false)
+  }
+
+  const logisticFullfillMent_2 = () =>{
+    setLogisticFullfillMent1(false)
+    setLogisticFullfillMent2(true)
+  }
+
+  const displayLogisticFullfilment = () => {
+    if (logisticFullfillMent1) {
+      return <LogisticFullfillmentSlide1 />
+    }
+    if (logisticFullfillMent2) {
+      return <LogisticFullfillmentSlide2 />;
+    }
+  };
+  const onClickSlider1 = () => {
+    setSlide1(true);
+    setSlide2(false);
+  };
+  const onClickSlider2 = () => {
+    setSlide1(false);
+    setSlide2(true);
+  };
+
+  const displaySlider = () => {
+    if (slide1) {
+      return <Slider1 />;
+    }
+    if (slide2) {
+      return <Slider2 />;
+    }
+  };
   const [open, setOpen] = useState(1);
-  const [accordionColor,setAccodionColor] = useState('black')
-  const handleOpen = (value: number,color?:string) => {
+  const [accordionColor, setAccodionColor] = useState("black");
+  const handleOpen = (value: number, color?: string) => {
     setOpen(open === value ? 0 : value);
-    setAccodionColor(accordionColor! === color! ? accordionColor! : color!)
+    setAccodionColor(accordionColor! === color! ? accordionColor! : color!);
   };
 
   const handleClickTrack = () => {
-    alert('Plz enter valid LRN number')
+    alert("Plz enter valid LRN number");
   };
-  const handleClickLetsTalk:any = () => {
-    router.push('/contact-us-page')
+  const handleClickLetsTalk: any = () => {
+    router.push("/contact-us-page");
   };
-  const exploreAllCity = () =>{
-    router.push('/domestic-relocation-page')
-  }
+  const exploreAllCity = () => {
+    router.push("/domestic-relocation-page");
+  };
   return (
     <div className="relative bg-white w-full h-[8551px] overflow-hidden text-left text-lg text-gray-1600 font-fedra-sans-std">
       <div className="absolute top-[0px] left-[0px] w-[375px] h-[450px]">
@@ -172,7 +260,7 @@ const HomeMobileView = () => {
             <div className="relative inline-block">Choose Order Type</div>
             <div className="w-[603px] flex flex-row items-center justify-between text-xl text-black">
               {/* <div className="relative inline-block">LTL Shipment (LRN)</div> */}
-              <Select options={options} /> 
+              <Select options={options} />
               {/* <img
                 className="relative w-[24px] h-[24px] shrink-0"
                 alt=""
@@ -182,14 +270,16 @@ const HomeMobileView = () => {
           </div>
           <div className="rounded-[10px] bg-gray-300 w-[303px] flex flex-row p-[16px_20px] box-border items-start justify-start text-center text-lg text-gray-700">
             <div className="relative inline-block">LRN Number</div>
-            
           </div>
         </div>
         <div className="rounded-[10px] bg-gold w-[303px] flex flex-row p-[16px_20px] box-border items-center justify-center text-center text-lg text-gray-1600">
           <div className="relative font-medium inline-block">Track</div>
         </div>
       </div>
-      <div className="absolute top-[821px] left-[-28px] w-[403px] h-[486px] text-2xl text-white" style={{backgroundColor:'black'}}>
+      <div
+        className="absolute top-[821px] left-[-28px] w-[403px] h-[486px] text-2xl text-white"
+        style={{ backgroundColor: "black" }}
+      >
         {/* <img
           className="absolute top-[0px] left-[28px] w-[375px] h-[486px] object-cover"
           alt=""
@@ -213,36 +303,47 @@ const HomeMobileView = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-[1357px] left-[16px] w-[666px] h-[590px] text-teal-100">
-        <Slider1 />
-          {/* <Slider /> */}
-       {/* Buttons */}
-       {/* <div className="flex items-center justify-center">
-          <div className="inline-flex" role="group">
+
+      <div
+        className="absolute top-[1357px] left-[16px] w-[666px] h-[590px] text-teal-100"
+        style={{ marginTop: "20px" }}
+      >
+        {/* Slider Start */}
+
+        {displaySlider()}
+
+        <div className="flex items-center justify-center">
+          <div
+            className="inline-flex"
+            role="group"
+            style={{ marginTop: "555px", marginRight: "318px" }}
+          >
             <button
-              className="mx-0.5"
+              className="mx-1.5"
               style={{
                 border: "0.5px solid gray",
                 borderRadius: "50%",
-                padding: "6px",
-                backgroundColor: "#B9B9B9",
+                padding: "10px",
+                backgroundColor: "black",
                 cursor: "pointer",
               }}
-               onClick={() => onClickSlider1()}
+              onClick={() => onClickSlider1()}
             ></button>
             <button
-              className="mx-0.5"
+              className="mx-1.5"
               style={{
                 border: "0.5px solid gray",
                 borderRadius: "50%",
-                padding: "6px",
-                backgroundColor: "#B9B9B9",
+                padding: "10px",
+                backgroundColor: "black",
                 cursor: "pointer",
               }}
-               onClick={() => onClickSlider2()}
+              onClick={() => onClickSlider2()}
             ></button>
           </div>
-        </div> */}
+        </div>
+
+        {/* Slider End */}
       </div>
       <div className="absolute top-[1996px] left-[16px] w-[343px] h-[443px]">
         <img
@@ -272,7 +373,10 @@ const HomeMobileView = () => {
           <div className="relative inline-block w-[278px]">
             Get local advice for your request. Our team is always there for you.
           </div>
-          <div onClick={() => handleClickLetsTalk()} className="rounded-[10px] bg-gray-1600 flex flex-row p-[16px_20px] box-border items-center justify-start gap-[20px] text-white">
+          <div
+            onClick={() => handleClickLetsTalk()}
+            className="rounded-[10px] bg-gray-1600 flex flex-row p-[16px_20px] box-border items-center justify-start gap-[20px] text-white"
+          >
             <div className="relative font-medium inline-block">Let’s Talk</div>
             <img
               className="relative w-[25.32px] h-[16px] shrink-0"
@@ -347,7 +451,7 @@ const HomeMobileView = () => {
         </div>
         <div className="absolute top-[150px] left-[16px] flex flex-row items-center justify-center gap-[10px] text-base text-gray-1600">
           <div className="rounded-[20px] [border:1px_solid_#000c24] box-border relative w-[160px] h-[180px] shrink-0 flex flex-col p-[16px] items-center justify-center gap-[30px]">
-          <img
+            <img
               className="relative w-[72.02px] h-[81px] shrink-0"
               alt=""
               src="../group-581.svg"
@@ -375,7 +479,10 @@ const HomeMobileView = () => {
             <div className="relative inline-block">Chennai</div>
           </div> */}
         </div>
-        <div className="absolute top-[360px] left-[72px] rounded-[10px] [border:1px_solid_#439fd9] box-border flex flex-row p-[20px_30px] items-center justify-start gap-[20px] text-left" onClick={() => exploreAllCity()}>
+        <div
+          className="absolute top-[360px] left-[72px] rounded-[10px] [border:1px_solid_#439fd9] box-border flex flex-row p-[20px_30px] items-center justify-start gap-[20px] text-left"
+          onClick={() => exploreAllCity()}
+        >
           <div className="relative inline-block">Explore All Cities</div>
           <img
             className="relative w-[24px] h-[24px] shrink-0 hidden"
@@ -395,98 +502,98 @@ const HomeMobileView = () => {
         </b>
         <div className="w-[323px] flex flex-col items-start justify-start text-gray-1200">
           <Fragment>
-          <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
-                <AccordionHeader
-                  onClick={() => handleOpen(1,'blue')}
-                  className="py-2 sm:py-4 border-b-2 border-[#E4E4E4] secondaryText text-lg sm:text-2xl"
-                  style={{ borderStyle: "hidden", backgroundColor: "white" }}
-                >
-                  When is the best time to relocate?
-                </AccordionHeader>
-                <AccordionBody
-                  className="text-[#3c3c43] text-md"
-                  style={{ color: "gray" }}
-                >
-                  Try to provide moving companies with as much notice as
-                  possible, especially if you are moving during the summer
-                  months (mid-May to mid-September) or at the beginning or end
-                  of a month (regardless of the season). We recommend making
-                  arrangements at least four to six weeks before your desired
-                  moving date. This will increase your likelihood of securing
-                  the pickup and delivery dates you desire. Add even more time
-                  to make a decision if you are obligated by your employer to
-                  submit estimates for approval.
-                </AccordionBody>
-              </Accordion>
-              <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
-                <AccordionHeader
-                  onClick={() => handleOpen(2)}
-                  className="py-2 sm:py-4 border-b-2 border-[#E4E4E4] secondaryText  text-xl sm:text-2xl"
-                  style={{ borderStyle: "hidden", backgroundColor: "white" }}
-                >
-                  When is the best time to relocate?
-                </AccordionHeader>
-                <AccordionBody
-                  className="text-[#3c3c43] text-md"
-                  style={{ color: "gray" }}
-                >
-                  Try to provide moving companies with as much notice as
-                  possible, especially if you are moving during the summer
-                  months (mid-May to mid-September) or at the beginning or end
-                  of a month (regardless of the season). We recommend making
-                  arrangements at least four to six weeks before your desired
-                  moving date. This will increase your likelihood of securing
-                  the pickup and delivery dates you desire. Add even more time
-                  to make a decision if you are obligated by your employer to
-                  submit estimates for approval.
-                </AccordionBody>
-              </Accordion>
-              <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
-                <AccordionHeader
-                  onClick={() => handleOpen(3)}
-                  className="py-2 sm:py-4 border-b-2 border-[#E4E4E4] secondaryText text-xl sm:text-2xl"
-                  style={{ borderStyle: "hidden", backgroundColor: "white" }}
-                >
-                  When is the best time to relocate?
-                </AccordionHeader>
-                <AccordionBody
-                  className="text-[#3c3c43] text-md"
-                  style={{ color: "gray" }}
-                >
-                  Try to provide moving companies with as much notice as
-                  possible, especially if you are moving during the summer
-                  months (mid-May to mid-September) or at the beginning or end
-                  of a month (regardless of the season). We recommend making
-                  arrangements at least four to six weeks before your desired
-                  moving date. This will increase your likelihood of securing
-                  the pickup and delivery dates you desire. Add even more time
-                  to make a decision if you are obligated by your employer to
-                  submit estimates for approval.
-                </AccordionBody>
-              </Accordion>
-              <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
-                <AccordionHeader
-                  onClick={() => handleOpen(4)}
-                  className="py-2 sm:py-4 border-b-2 border-[#E4E4E4] secondaryText text-xl sm:text-2xl"
-                  style={{ borderStyle: "hidden", backgroundColor: "white" }}
-                >
+            <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
+              <AccordionHeader
+                onClick={() => handleOpen(1, "blue")}
+                className="py-2 sm:py-4 border-b-2 border-[#E4E4E4] secondaryText text-lg sm:text-2xl"
+                style={{ borderStyle: "hidden", backgroundColor: "white" }}
+              >
                 When is the best time to relocate?
-                </AccordionHeader>
-                <AccordionBody
-                  className="text-[#3c3c43] text-md"
-                  style={{ color: "gray" }}
-                >
-                  Try to provide moving companies with as much notice as
-                  possible, especially if you are moving during the summer
-                  months (mid-May to mid-September) or at the beginning or end
-                  of a month (regardless of the season). We recommend making
-                  arrangements at least four to six weeks before your desired
-                  moving date. This will increase your likelihood of securing
-                  the pickup and delivery dates you desire. Add even more time
-                  to make a decision if you are obligated by your employer to
-                  submit estimates for approval.
-                </AccordionBody>
-              </Accordion>
+              </AccordionHeader>
+              <AccordionBody
+                className="text-[#3c3c43] text-md"
+                style={{ color: "gray" }}
+              >
+                Try to provide moving companies with as much notice as possible,
+                especially if you are moving during the summer months (mid-May
+                to mid-September) or at the beginning or end of a month
+                (regardless of the season). We recommend making arrangements at
+                least four to six weeks before your desired moving date. This
+                will increase your likelihood of securing the pickup and
+                delivery dates you desire. Add even more time to make a decision
+                if you are obligated by your employer to submit estimates for
+                approval.
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
+              <AccordionHeader
+                onClick={() => handleOpen(2)}
+                className="py-2 sm:py-4 border-b-2 border-[#E4E4E4] secondaryText  text-xl sm:text-2xl"
+                style={{ borderStyle: "hidden", backgroundColor: "white" }}
+              >
+                When is the best time to relocate?
+              </AccordionHeader>
+              <AccordionBody
+                className="text-[#3c3c43] text-md"
+                style={{ color: "gray" }}
+              >
+                Try to provide moving companies with as much notice as possible,
+                especially if you are moving during the summer months (mid-May
+                to mid-September) or at the beginning or end of a month
+                (regardless of the season). We recommend making arrangements at
+                least four to six weeks before your desired moving date. This
+                will increase your likelihood of securing the pickup and
+                delivery dates you desire. Add even more time to make a decision
+                if you are obligated by your employer to submit estimates for
+                approval.
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
+              <AccordionHeader
+                onClick={() => handleOpen(3)}
+                className="py-2 sm:py-4 border-b-2 border-[#E4E4E4] secondaryText text-xl sm:text-2xl"
+                style={{ borderStyle: "hidden", backgroundColor: "white" }}
+              >
+                When is the best time to relocate?
+              </AccordionHeader>
+              <AccordionBody
+                className="text-[#3c3c43] text-md"
+                style={{ color: "gray" }}
+              >
+                Try to provide moving companies with as much notice as possible,
+                especially if you are moving during the summer months (mid-May
+                to mid-September) or at the beginning or end of a month
+                (regardless of the season). We recommend making arrangements at
+                least four to six weeks before your desired moving date. This
+                will increase your likelihood of securing the pickup and
+                delivery dates you desire. Add even more time to make a decision
+                if you are obligated by your employer to submit estimates for
+                approval.
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
+              <AccordionHeader
+                onClick={() => handleOpen(4)}
+                className="py-2 sm:py-4 border-b-2 border-[#E4E4E4] secondaryText text-xl sm:text-2xl"
+                style={{ borderStyle: "hidden", backgroundColor: "white" }}
+              >
+                When is the best time to relocate?
+              </AccordionHeader>
+              <AccordionBody
+                className="text-[#3c3c43] text-md"
+                style={{ color: "gray" }}
+              >
+                Try to provide moving companies with as much notice as possible,
+                especially if you are moving during the summer months (mid-May
+                to mid-September) or at the beginning or end of a month
+                (regardless of the season). We recommend making arrangements at
+                least four to six weeks before your desired moving date. This
+                will increase your likelihood of securing the pickup and
+                delivery dates you desire. Add even more time to make a decision
+                if you are obligated by your employer to submit estimates for
+                approval.
+              </AccordionBody>
+            </Accordion>
           </Fragment>
         </div>
         <div className="rounded-[10px] [border:1px_solid_#439fd9] box-border relative flex flex-row p-[20px_30px] items-center justify-start gap-[20px] text-teal-100">
@@ -517,7 +624,38 @@ const HomeMobileView = () => {
         </b>
 
         <div className="absolute top-[173px] left-[16px] flex flex-row items-start justify-center gap-[10px] text-left text-5xl text-teal-200 font-open-sans">
-          <div className="rounded-[20px] bg-white flex flex-col p-[20px] box-border items-start justify-center gap-[20px]">
+        {displayLogisticFullfilment()}
+        <div className="flex items-center justify-center">
+          <div
+            className="inline-flex"
+            role="group"
+            style={{ marginTop: "312px", marginLeft: "-132px" }}
+          >
+            <button
+              className="mx-1.5"
+              style={{
+                border: "0.5px solid gray",
+                borderRadius: "50%",
+                padding: "10px",
+                backgroundColor: "black",
+                cursor: "pointer",
+              }}
+              onClick={() => logisticFullfillMent_1()}
+            ></button>
+            <button
+              className="mx-1.5"
+              style={{
+                border: "0.5px solid gray",
+                borderRadius: "50%",
+                padding: "10px",
+                backgroundColor: "black",
+                cursor: "pointer",
+              }}
+              onClick={() => logisticFullfillMent_2()}
+            ></button>
+          </div>
+        </div>
+          {/* <div className="rounded-[20px] bg-white flex flex-col p-[20px] box-border items-start justify-center gap-[20px]">
             <div className="relative font-extrabold inline-block">01</div>
             <img
               className="relative w-[39.11px] h-[32px] shrink-0"
@@ -535,31 +673,8 @@ const HomeMobileView = () => {
                 </p>
               </div>
             </div>
-          </div>
-             {/* <div  role="group">
-               <button
-                 className="mx-0.5"
-                 style={{
-                   border: "0.5px solid gray",
-                   borderRadius: "50%",
-                   padding: "16px",
-                   backgroundColor:'black',
-                   cursor:'pointer'
-                 }}
-                //  onClick={() => onClickSlider1()}
-               ></button>
-               <button
-                 className="mx-0.5"
-                 style={{
-                   border: "0.5px solid gray",
-                   borderRadius: "50%",
-                   padding: "16px",
-                   backgroundColor:'black',
-                   cursor:'pointer'
-                 }}
-                //  onClick={() => onClickSlider2()}
-               ></button>
-             </div> */}
+          </div> */}
+
         </div>
       </div>
       <div className="absolute top-[5133px] left-[16px] flex flex-col items-center justify-start gap-[30px]">
