@@ -9,7 +9,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import Select from 'react-select'
-
+import Slider from "../Layouts/Slider"
 const options = [
   { value: 'mobile_number', label: 'Mobile Number' },
   { value: 'trackingId', label: 'Tracking ID' },
@@ -96,27 +96,10 @@ const HomeMobileView = () => {
     setAccodionColor(accordionColor! === color! ? accordionColor! : color!)
   };
 
-
-  // const onClickSlider1 = () => {
-  //   setSlide1(true);
-  //   setSlide2(false);
-  // };
-  // const onClickSlider2 = () => {
-  //   setSlide1(false);
-  //   setSlide2(true);
-  // };
-  // const displaySlider = () => {
-  //   if (slide1) {
-  //     return <Slider1 />;
-  //   }
-  //   if (slide2) {
-  //     return <Slider2 />;
-  //   }
-  // };
   const handleClickTrack = () => {
     alert('Plz enter valid LRN number')
   };
-  const handleClickLetsTalk = () => {
+  const handleClickLetsTalk:any = () => {
     router.push('/contact-us-page')
   };
   const exploreAllCity = () =>{
@@ -232,7 +215,7 @@ const HomeMobileView = () => {
       </div>
       <div className="absolute top-[1357px] left-[16px] w-[666px] h-[590px] text-teal-100">
         <Slider1 />
-        {/* {displaySlider()} */}
+          {/* <Slider /> */}
        {/* Buttons */}
        {/* <div className="flex items-center justify-center">
           <div className="inline-flex" role="group">
@@ -289,7 +272,7 @@ const HomeMobileView = () => {
           <div className="relative inline-block w-[278px]">
             Get local advice for your request. Our team is always there for you.
           </div>
-          <div className="rounded-[10px] bg-gray-1600 flex flex-row p-[16px_20px] box-border items-center justify-start gap-[20px] text-white">
+          <div onClick={() => handleClickLetsTalk()} className="rounded-[10px] bg-gray-1600 flex flex-row p-[16px_20px] box-border items-center justify-start gap-[20px] text-white">
             <div className="relative font-medium inline-block">Let’s Talk</div>
             <img
               className="relative w-[25.32px] h-[16px] shrink-0"
